@@ -129,6 +129,8 @@ momorph init . --ai cursor
 - 選択した AI エージェント用の MCP サーバー接続をセットアップ
 - MoMorph VSCode Extension を自動インストール（未インストールの場合）。インストール後、VSCode でリポジトリのソースコードを開き → "MoMorph: Sign In" コマンドを実行 → サイドバーの MoMorph アイコンをクリック → 連携済み Figma ファイルのフレーム一覧が表示されます。
 
+> **注意:** `momorph init` 実行中に `failed to install extension` エラーが表示されても init 自体が成功している場合は、最新の VSIX ファイルをダウンロードし、次のガイドに従って拡張機能を手動でインストールしてください: https://sun-asterisk.enterprise.slack.com/docs/T02CQGZA7MK/F094K2LTV71?focus_section_id=temp:C:USe2e5a076e79fd458c9b713260c
+
 ### ステップ 8: コード生成の開始
 
 Figma プロジェクトを使って実践します:

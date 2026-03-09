@@ -129,6 +129,8 @@ Lệnh này sẽ:
 - Thiết lập kết nối MCP server cho AI agent đã chọn
 - Tự động cài đặt MoMorph VSCode Extension (nếu chưa cài). Sau khi cài đặt, mở source code repo trên VSCode → chạy command "MoMorph: Sign In" → click vào biểu tượng MoMorph trên sidebar → bạn sẽ thấy danh sách frame list của Figma file đã liên kết.
 
+> **Lưu ý:** Nếu trong quá trình `momorph init` bạn gặp lỗi `failed to install extension` nhưng init vẫn hoàn tất, hãy tải file VSIX mới nhất và cài extension thủ công theo hướng dẫn tại đây: https://sun-asterisk.enterprise.slack.com/docs/T02CQGZA7MK/F094K2LTV71?focus_section_id=temp:C:USe2e5a076e79fd458c9b713260c
+
 ### Bước 8: Bắt đầu generate code
 
 Sử dụng Figma project để thực hành:
