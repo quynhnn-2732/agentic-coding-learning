@@ -28,6 +28,13 @@ Sun\* 社内向け **Agentic Coding** ハンズオン研修用リポジトリで
 
 ## ハンズオン手順
 
+### ステップ 0: GitHub SSO を実施する
+
+1. https://github.com/orgs/sun-asterisk-internal/sso にアクセスします
+2. SSO サインインを完了し、あなたの GitHub アカウントが `sun-asterisk-internal` organization に参加できる状態にします
+3. `sun-asterisk-internal/agentic-coding-hands-on` リポジトリのメンバーに追加してもらうため、GitHub ユーザー名を `@nguyen.huu.kim` または `@le.minh.hoang` に共有します
+4. 対応完了の連絡を待ってから、次のステップに進みます
+
 ### ステップ 1: リポジトリのクローン
 
 ```sh
@@ -49,7 +56,7 @@ yarn install
 
 1. [MoMorph Web](https://momorph.ai/) にアクセスし、Figma アカウント（`*@sun-asterisk.com` メール）でサインインします。
 2. 次の Figma ファイルリンクを入力して続行します: https://www.figma.com/design/9ypp4enmFmdK3YAFJLIu6C/SAA-2025---Internal-Live-Coding
-3. **Settings → GitHub → Connect** で GitHub アカウントを MoMorph に連携します。
+3. **Settings → GitHub → Connect** で GitHub アカウントを MoMorph に連携し、この手順で `sun-asterisk-internal/agentic-coding-hands-on` リポジトリへのアクセス権限を付与済みであることを必ず確認してください。
 
 > **注意:** このリポジトリはすでにシステム上で MoMorph および Figma プロジェクトと連携されています。個人の GitHub アカウントを MoMorph に連携するだけで使用できます。
 

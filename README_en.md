@@ -28,6 +28,13 @@ This repository has 2 branches:
 
 ## Hands-on Guide
 
+### Step 0: Complete GitHub SSO
+
+1. Visit https://github.com/orgs/sun-asterisk-internal/sso
+2. Complete the SSO sign-in process so your GitHub account can join the `sun-asterisk-internal` organization
+3. Send your GitHub username to `@nguyen.huu.kim` or `@le.minh.hoang` so you can be added to the `sun-asterisk-internal/agentic-coding-hands-on` repository members list
+4. Wait for confirmation, then proceed to the next step
+
 ### Step 1: Clone the repository
 
 ```sh
@@ -49,7 +56,7 @@ yarn install
 
 1. Go to [MoMorph Web](https://momorph.ai/) and sign in with your Figma account (use your `*@sun-asterisk.com` email).
 2. Enter the following Figma file link to continue: https://www.figma.com/design/9ypp4enmFmdK3YAFJLIu6C/SAA-2025---Internal-Live-Coding
-3. Go to **Settings → GitHub → Connect** to link your GitHub account with MoMorph.
+3. Go to **Settings → GitHub → Connect** to link your GitHub account with MoMorph, and make sure you have granted access to the `sun-asterisk-internal/agentic-coding-hands-on` repository in this step.
 
 > **Note:** This repository is already connected to MoMorph and the Figma project on the system. You only need to connect your personal GitHub account to MoMorph to get started.
 
