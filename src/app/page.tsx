@@ -1,52 +1,58 @@
-import Image from "next/image";
+import type { Metadata } from 'next'
+import Image from 'next/image'
+import { createClient } from '@/libs/supabase/server'
+import { HomepageHeader } from '@/app/_components/homepage/header'
+import { HeroSection } from '@/app/_components/homepage/hero-section'
+import { B4Content } from '@/app/_components/homepage/b4-content'
+import { AwardsSection } from '@/app/_components/homepage/awards-section'
+import { SunkudosSection } from '@/app/_components/homepage/sunkudos-section'
+import { HomepageFooter } from '@/app/_components/homepage/footer'
+import { WidgetButton } from '@/app/_components/homepage/widget-button'
 
-export default function Home() {
-	return (
-		<div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-			<main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-				<Image className="dark:invert" src="/next.svg" alt="Next.js logo" width={180} height={38} priority />
-				<ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-					<li className="mb-2 tracking-[-.01em]">
-						Get started by editing{" "}
-						<code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-							src/app/page.tsx
-						</code>
-						.
-					</li>
-					<li className="tracking-[-.01em]">Save and see your changes instantly.</li>
-				</ol>
+export const metadata: Metadata = { title: 'SAA 2025 — Homepage' }
 
-				<div className="flex gap-4 items-center flex-col sm:flex-row">
-					<a
-						className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-						href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Read our docs
-					</a>
-				</div>
-			</main>
-			<footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-				<a
-					className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-					href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
-					Learn
-				</a>
-				<a
-					className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-					href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
-					Go to nextjs.org →
-				</a>
-			</footer>
-		</div>
-	);
+export default async function HomePage() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  const avatarUrl = user?.user_metadata?.avatar_url as string | undefined
+
+  return (
+    <main className="relative overflow-x-hidden bg-[#00101A]">
+      {/* 3.5_Keyvisual — page-level absolute, 1512×1392px per Figma design */}
+      <div className="absolute top-0 left-0 right-0 h-[1392px] overflow-hidden pointer-events-none" aria-hidden="true">
+        <Image
+          src="/images/homepage/hero-keyvisual.png"
+          alt=""
+          fill
+          priority
+          quality={100}
+          className="object-cover object-top"
+          sizes="100vw"
+        />
+        {/* Cover — diagonal gradient (bottom-left → transparent), per Figma "Cover" layer */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(12deg, #00101A 23.7%, rgba(0,18,29,0.46) 38.34%, rgba(0,19,32,0) 48.92%)',
+          }}
+        />
+        {/* Bottom fade — blends keyvisual into dark page below */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-[320px]"
+          style={{ background: 'linear-gradient(to top, #00101A 0%, transparent 100%)' }}
+        />
+      </div>
+
+      <HomepageHeader avatarUrl={avatarUrl} />
+      <HeroSection />
+      <div className="relative z-[1] flex flex-col gap-[120px] pt-[120px] pb-[96px]">
+        <B4Content />
+        <AwardsSection />
+        <SunkudosSection />
+      </div>
+      <HomepageFooter />
+      <WidgetButton />
+    </main>
+  )
 }

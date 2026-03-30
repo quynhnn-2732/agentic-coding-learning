@@ -1,26 +1,162 @@
 @import "tailwindcss";
 
-:root {
-	--background: #ffffff;
-	--foreground: #171717;
-}
-
 @theme inline {
-	--color-background: var(--background);
-	--color-foreground: var(--foreground);
-	--font-sans: var(--font-geist-sans);
-	--font-mono: var(--font-geist-mono);
+  /* === Colors === */
+  --color-bg-dark: #00101A;
+  --color-header-bg: rgba(16, 20, 23, 0.8);
+  --color-btn-login-bg: #FFEA9E;
+  --color-btn-login-text: #00101A;
+  --color-text-white: #FFFFFF;
+  --color-text-hero: #FFFFFF;
+  --color-divider: #2E3940;
+  --color-error: #EF4444;
+  --color-gradient-from: #00101A;
+  --color-footer-text: rgba(255, 255, 255, 0.6);
+
+  /* === Fonts === */
+  --font-montserrat: var(--font-montserrat);
+  --font-montserrat-alt: var(--font-montserrat-alt);
+
+  /* === Spacing — semantic tokens === */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 80px;
+
+  /* Hero section */
+  --spacing-hero-px: 144px;
+  --spacing-hero-py: 96px;
+  --spacing-hero-top: 88px;
+  --spacing-hero-gap: 120px;
+
+  /* Header */
+  --spacing-header-py: 12px;
+  --spacing-header-h: 80px;
+  --spacing-header-px: 40px;
+
+  /* Footer */
+  --spacing-footer-px: 90px;
+  --spacing-footer-py: 24px;
+
+  /* Login button */
+  --spacing-btn-login-w: 305px;
+  --spacing-btn-login-h: 60px;
+  --spacing-btn-login-gap: 12px;
+  --spacing-btn-login-px: 24px;
+
+  /* === Border Radius === */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-btn-login: 60px;
+  --radius-metadata: 16px;
+
+  /* === Typography === */
+  --text-award-page-title-size: 57px;
+  --text-hero-title-size: 32px;
+  --text-hero-title-weight: 700;
+  --text-hero-title-line: 1.4;
+  --text-hero-subtitle-size: 18px;
+  --text-hero-subtitle-weight: 400;
+  --text-footer-size: 16px;
+  --text-footer-weight: 700;
+  --text-btn-login-size: 16px;
+  --text-btn-login-weight: 700;
+  --text-header-lang-size: 14px;
+  --text-header-lang-weight: 700;
+
+  /* === Logo === */
+  --spacing-logo-w: 451px;
+  --spacing-logo-h: 200px;
+
+  /* === Homepage: NEW tokens === */
+
+  /* Colors */
+  --color-accent-gold: #FFEA9E;
+  --color-accent-gold-glow: #FAE287;
+  --color-btn-kudos-bg: rgba(255, 234, 158, 0.10);
+  --color-btn-kudos-border: #998C5F;
+  --color-notification-badge: rgba(212, 39, 29, 1);
+  --color-kudos-text: #DBD1C1;
+  --color-nav-selected: #FFEA9E;
+  --color-countdown-digit: #FFFFFF;
+  --color-homepage-header-bg: rgba(16, 20, 23, 0.8);
+
+  /* Spacing — Homepage specific */
+  --spacing-section: 120px;
+  --spacing-page-px: 144px;
+  --spacing-page-py: 96px;
+  --spacing-content-w: 1224px;
+
+  /* Typography — Homepage specific */
+  --text-section-heading-size: 57px;
+  --text-section-heading-weight: 700;
+  --text-section-heading-line: 64px;
+  --text-cta-btn-size: 22px;
+  --text-cta-btn-weight: 700;
+  --text-award-card-title-size: 24px;
+  --text-award-card-title-weight: 400;
+  --text-award-card-desc-size: 16px;
+
+  /* Shadows */
+  --shadow-glow-gold: 0 4px 4px rgba(0,0,0,0.25), 0 0 6px #FAE287;
+  --shadow-nav-selected: 0 4px 4px rgba(0,0,0,0.25), 0 0 6px #FAE287;
+
+  /* Font — self-hosted Digital Numbers */
+  --font-digital: 'Digital Numbers', monospace;
+
+  /* === Sun* Kudos Live Board tokens === */
+
+  /* Colors — Kudos-specific */
+  --color-kudos-card-bg: #FFF8E1;
+  --color-kudos-container-dark: #00070C;
+  --color-kudos-heart-active: #FF0000;
+  --color-kudos-text-secondary: #999999;
+  --color-kudos-btn-hover: rgba(255, 234, 158, 0.40);
+
+  /* Border Radius — Kudos-specific */
+  --radius-kudos-card: 24px;
+  --radius-kudos-highlight: 16px;
+  --radius-kudos-stats: 17px;
+  --radius-kudos-pill: 68px;
+  --radius-kudos-spotlight: 47.14px;
+  --radius-kudos-content-block: 12px;
+  --radius-kudos-btn-gift: 8px;
+
+  /* Spacing — Kudos-specific */
+  --spacing-kudos-section-gap: 40px;
+  --spacing-kudos-card-gap: 16px;
+  --spacing-kudos-feed-gap: 24px;
+  --spacing-kudos-sidebar-gap: 24px;
+  --spacing-kudos-feed-sidebar: 80px;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
+@font-face {
+  font-family: 'Digital Numbers';
+  src: url('/fonts/digital-numbers/digital-numbers.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-body {
-	background: var(--background);
-	color: var(--foreground);
-	font-family: Arial, Helvetica, sans-serif;
+/* Highlight Kudos Carousel */
+.highlight-kudos-carousel .swiper-slide {
+  transition: opacity 300ms ease-in-out;
+  opacity: 0.6;
+}
+
+.highlight-kudos-carousel .swiper-slide-active {
+  opacity: 1;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }

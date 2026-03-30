@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__playwright__browser_close",
+      "Bash(pkill -f \"mcp-chrome\")",
+      "Bash(sips -g pixelHeight -g pixelWidth /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/public/images/homepage/hero-keyvisual.png)",
+      "Bash(identify /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/public/images/sun-kudos/keyvisual-bg.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/public/images/sun-kudos/keyvisual-bg.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/public/images/homepage/kudos-section-bg.png /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/public/images/homepage/hero-keyvisual.png)",
+      "Bash(sips -g all /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/public/images/sun-kudos/keyvisual-bg.png)",
+      "Bash(npx --yes sharp-cli --help)",
+      "Bash(npx sharp-cli:*)",
+      "Bash(ls -la .env*)",
+      "mcp__momorph__get_project_overview",
+      "Bash(node -e \"const p = require\\(''/Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/node_modules/swiper/package.json''\\); console.log\\(''version:'', p.version\\); console.log\\(''exports keys:'', Object.keys\\(p.exports || {}\\).slice\\(0, 20\\).join\\('', ''\\)\\)\")",
+      "Bash(node -e \"const p = require\\(''/Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/node_modules/swiper/package.json''\\); const keys = Object.keys\\(p.exports || {}\\); console.log\\(keys.filter\\(k => k.includes\\(''react''\\) || k.includes\\(''module''\\) || k.includes\\(''navigation''\\)\\).join\\(''\\\\n''\\)\\); console.log\\(''---''\\); console.log\\(keys.filter\\(k => k.includes\\(''css''\\)\\).join\\(''\\\\n''\\)\\)\")",
+      "Bash(node -e \"const p = require\\(''/Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/node_modules/swiper/package.json''\\); console.log\\(JSON.stringify\\(p.exports[''./react''], null, 2\\)\\); console.log\\(''---''\\); console.log\\(JSON.stringify\\(p.exports[''./modules''], null, 2\\)\\); console.log\\(''---''\\); console.log\\(JSON.stringify\\(p.exports[''./css''], null, 2\\)\\)\")",
+      "Bash(node -e \":*)",
+      "Bash(lsof -ti:3000)",
+      "Bash(npm view:*)",
+      "Bash(npm install:*)"
+    ]
+  }
+}
