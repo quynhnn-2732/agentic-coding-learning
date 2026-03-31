@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Montserrat, Montserrat_Alternates } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
-import { createClient } from '@/libs/supabase/server'
 import { WriteKudoProvider } from '@/app/_components/sun-kudos/write-kudo/write-kudo-context'
 import { WidgetButton } from '@/app/_components/homepage/widget-button'
 import './globals.css'
@@ -32,9 +31,6 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale()
   const messages = await getMessages()
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
-  const isAuthenticated = !!user
 
   return (
     <html lang={locale}>
@@ -50,7 +46,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <WriteKudoProvider>
             {children}
-            {isAuthenticated && <WidgetButton />}
+            <WidgetButton />
           </WriteKudoProvider>
         </NextIntlClientProvider>
       </body>

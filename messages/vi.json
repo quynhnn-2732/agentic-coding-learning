@@ -1,14 +1,14 @@
 {
   "Header": {
     "goToHomepage": "Về trang chủ",
-    "aboutSaa": "About SAA 2025",
-    "awardsInfo": "Awards Information",
+    "aboutSaa": "Về SAA 2025",
+    "awardsInfo": "Thông tin giải thưởng",
     "sunKudos": "Sun* Kudos",
     "notification": "Thông báo"
   },
   "Footer": {
-    "aboutSaa": "About SAA 2025",
-    "awardsInfo": "Awards Information",
+    "aboutSaa": "Về SAA 2025",
+    "awardsInfo": "Thông tin giải thưởng",
     "sunKudos": "Sun* Kudos",
     "standards": "Tiêu chuẩn chung",
     "copyright": "Bản quyền thuộc về Sun* © 2025"
@@ -17,7 +17,7 @@
     "quickAction": "Thao tác nhanh",
     "rules": "Thể lệ",
     "writeKudos": "Viết KUDOS",
-    "closeMenu": "Đóng menu"
+    "closeMenu": "Đóng"
   },
   "RulesPanel": {
     "title": "Thể lệ",
@@ -35,15 +35,15 @@
     "closeError": "Đóng thông báo lỗi"
   },
   "Profile": {
-    "title": "Profile",
-    "comingSoon": "Profile page coming soon."
+    "title": "Hồ sơ",
+    "comingSoon": "Trang hồ sơ sắp ra mắt."
   },
   "ProfileDropdown": {
     "account": "Tài khoản",
-    "profileMenu": "Profile menu",
-    "profile": "Profile",
-    "logout": "Logout",
-    "unexpectedError": "An unexpected error occurred"
+    "profileMenu": "Menu hồ sơ",
+    "profile": "Hồ sơ",
+    "logout": "Đăng xuất",
+    "unexpectedError": "Đã xảy ra lỗi không mong muốn"
   },
   "ErrorPage": {
     "title": "Đã xảy ra lỗi",
@@ -51,23 +51,23 @@
     "retry": "Thử lại"
   },
   "Homepage": {
-    "aboutAwards": "ABOUT AWARDS",
-    "aboutKudos": "ABOUT KUDOS",
-    "rootFurther": "ROOT FURTHER",
-    "saaSubtitle": "Sun* annual awards 2025",
+    "aboutAwards": "VỀ GIẢI THƯỞNG",
+    "aboutKudos": "VỀ KUDOS",
+    "rootFurther": "BỀN RỄ VƯƠN XA",
+    "saaSubtitle": "Giải thưởng thường niên Sun* 2025",
     "awardsHeading": "Hệ thống giải thưởng",
     "kudosMovement": "Phong trào ghi nhận",
     "sunKudos": "Sun* Kudos",
     "newInSaa": "ĐIỂM MỚI CỦA SAA 2025",
     "details": "Chi tiết",
-    "comingSoon": "Coming soon",
-    "days": "DAYS",
-    "hours": "HOURS",
-    "minutes": "MINUTES",
+    "comingSoon": "Sắp ra mắt",
+    "days": "NGÀY",
+    "hours": "GIỜ",
+    "minutes": "PHÚT",
     "kudosDesc": "Chương trình Sun* Kudos nằm trong khuôn khổ giải thưởng Sun* Annual Awards, là nơi mỗi Sunner có thể gửi lời cám ơn và ghi nhận đến đồng đội thông qua những thẻ Kudos — một cách đơn giản nhưng đầy ý nghĩa.",
     "b4Block1p1": "Sun* Annual Awards 2025 (SAA) được xây dựng trên tinh thần Root Further — Bền Rễ Vươn Xa. Với SAA 2025, chúng ta không đo lường thành công chỉ bằng những thành tích nổi bật, mà còn trân trọng những giá trị bền vững được nuôi dưỡng từ gốc rễ.",
     "b4Block1p2": "Ở Sun*, mỗi cá nhân đều là một gốc rễ quan trọng. Khi được nuôi dưỡng đúng cách — bằng sự phát triển, sự kết nối và giá trị cốt lõi — gốc rễ ấy sẽ vươn xa hơn mong đợi.",
-    "b4Quote": "A tree with deep roots fears no storm",
+    "b4Quote": "Cây có gốc rễ sâu không sợ bão giông",
     "b4QuoteVi": "(Cây sâu bền rễ, bão giông chẳng nề - Ngạn ngữ Anh)",
     "b4Block2": "SAA 2025 là dịp để Sun* nhìn lại hành trình đã đi qua, vinh danh những người đã âm thầm bồi đắp giá trị cho tổ chức, cho đồng đội, và cho chính mình. Đây không chỉ là một sự kiện trao giải — mà là lời khẳng định rằng: những gì bền vững, những gì thực sự có giá trị, luôn bắt đầu từ gốc rễ."
   },
@@ -81,7 +81,7 @@
   },
   "KudosActionBar": {
     "sendPrompt": "Hôm nay, bạn muốn gửi lời cảm ơn và ghi nhận đến ai?",
-    "searchSunner": "Tìm kiếm profile Sunner"
+    "searchSunner": "Tìm kiếm hồ sơ Sunner"
   },
   "KudosFeed": {
     "empty": "Chưa có lời cảm ơn nào — hãy là người đầu tiên ghi nhận!",
@@ -92,19 +92,19 @@
   },
   "HighlightCarousel": {
     "noHighlights": "Chưa có Kudos nổi bật nào.",
-    "title": "HIGHLIGHT KUDOS",
-    "hashtag": "Hashtag",
+    "title": "KUDOS NỔI BẬT",
+    "hashtag": "Từ khóa",
     "all": "Tất cả",
     "department": "Phòng ban",
-    "prevKudos": "Previous kudos",
-    "nextKudos": "Next kudos",
-    "prevPage": "Previous page",
-    "nextPage": "Next page"
+    "prevKudos": "Kudos trước",
+    "nextKudos": "Kudos tiếp",
+    "prevPage": "Trang trước",
+    "nextPage": "Trang tiếp"
   },
   "CopyLink": {
-    "ariaLabel": "Copy link",
-    "text": "Copy Link",
-    "copied": "Link copied — ready to share!"
+    "ariaLabel": "Sao chép liên kết",
+    "text": "Sao chép liên kết",
+    "copied": "Đã sao chép liên kết — sẵn sàng chia sẻ!"
   },
   "HeartButton": {
     "unlike": "Bỏ thích",
@@ -129,10 +129,10 @@
     "editorPlaceholder": "Hãy gửi gắm lời cám ơn và ghi nhận đến đồng đội tại đây nhé!",
     "communityStandards": "Tiêu chuẩn cộng đồng",
     "mentionHint": "Bạn có thể \"@ + tên\" để nhắc tới đồng nghiệp khác",
-    "imageLabel": "Image",
+    "imageLabel": "Hình ảnh",
     "imageMax": "Tối đa 5",
     "deleteImage": "Xóa {filename}",
-    "hashtagLabel": "Hashtag",
+    "hashtagLabel": "Từ khóa",
     "hashtagMax": "Tối đa 5",
     "deleteHashtag": "Xóa #{name}"
   },
@@ -149,12 +149,12 @@
     "save": "Lưu"
   },
   "RichTextToolbar": {
-    "bold": "Bold",
-    "italic": "Italic",
-    "strikethrough": "Strikethrough",
-    "numberedList": "Numbered list",
-    "insertLink": "Insert link",
-    "quote": "Quote"
+    "bold": "In đậm",
+    "italic": "In nghiêng",
+    "strikethrough": "Gạch ngang",
+    "numberedList": "Danh sách đánh số",
+    "insertLink": "Chèn liên kết",
+    "quote": "Trích dẫn"
   },
   "KudosStats": {
     "received": "Số Kudos bạn nhận được:",
@@ -174,25 +174,25 @@
     "fullscreen": "Xem toàn màn hình"
   },
   "ImageGallery": {
-    "imageAlt": "Kudo image {index}"
+    "imageAlt": "Hình ảnh Kudos {index}"
   },
   "KudoUserInfo": {
-    "stars": "{count} stars"
+    "stars": "{count} sao"
   },
   "HighlightKudoCard": {
     "viewDetail": "Xem chi tiết"
   },
   "AwardsInfo": {
-    "saaSubtitle": "Sun* annual awards 2025",
+    "saaSubtitle": "Giải thưởng thường niên Sun* 2025",
     "heading": "Hệ thống giải thưởng SAA 2025",
-    "awardCategories": "Award categories",
+    "awardCategories": "Hạng mục giải thưởng",
     "awardCount": "Số lượng giải thưởng:",
     "prizeValue": "Giá trị giải thưởng:",
     "or": "Hoặc",
     "forIndividual": "cho giải cá nhân",
     "forTeam": "cho giải tập thể",
     "forEach": "cho mỗi giải thưởng",
-    "awardAlt": "{name} award"
+    "awardAlt": "Giải thưởng {name}"
   },
   "RulesPanelContent": {
     "heroTitle": "NGƯỜI NHẬN KUDOS: HUY HIỆU HERO CHO NHỮNG ẢNH HƯỞNG TÍCH CỰC",

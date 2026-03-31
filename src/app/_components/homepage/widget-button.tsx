@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { useTranslations } from 'next-intl'
+import { createClient } from '@/libs/supabase/client'
 import { WidgetPenIcon } from '@/app/_components/icons/widget-pen-icon'
 import { WidgetSaaIcon } from '@/app/_components/icons/widget-saa-icon'
 import { CloseIcon } from '@/app/_components/icons/close-icon'
@@ -11,8 +12,17 @@ import { useWriteKudo } from '@/app/_components/sun-kudos/write-kudo/write-kudo-
 export function WidgetButton() {
   const { openWriteKudo } = useWriteKudo()
   const t = useTranslations('Widget')
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isRulesOpen, setIsRulesOpen] = useState(false)
+
+  useEffect(() => {
+    const supabase = createClient()
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setIsAuthenticated(!!session)
+    })
+    return () => subscription.unsubscribe()
+  }, [])
   const menuRef = useRef<HTMLDivElement>(null)
   const fabRef = useRef<HTMLButtonElement>(null)
 
@@ -49,6 +59,8 @@ export function WidgetButton() {
     document.addEventListener('keydown', handleEscape)
     return () => document.removeEventListener('keydown', handleEscape)
   }, [isMenuOpen, closeMenu])
+
+  if (!isAuthenticated) return null
 
   return (
     <>
