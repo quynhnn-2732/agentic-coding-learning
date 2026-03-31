@@ -18,7 +18,20 @@
       "Bash(node -e \":*)",
       "Bash(lsof -ti:3000)",
       "Bash(npm view:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(lsof -ti:3877)",
+      "Bash(xargs kill:*)",
+      "Bash(node -e \"const d3 = require\\(''d3-force''\\); console.log\\(''forceX:'', typeof d3.forceX\\); console.log\\(''forceY:'', typeof d3.forceY\\);\")",
+      "Bash(ls -la /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/*.config.*)",
+      "Bash(grep -r \"modal\\\\|dialog\\\\|drawer\\\\|slide\\\\|overlay\" /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/src/app --include=*.tsx -l)",
+      "Bash(xargs ls:*)",
+      "Bash(ln -sf ../313_9137-floating-action-button-collapsed/plan.md .momorph/specs/313_9139-floating-action-button-expanded/plan.md)",
+      "Bash(ln -sf ../313_9137-floating-action-button-collapsed/plan.md .momorph/specs/3204_6051-the-le-update/plan.md)",
+      "Bash(ls -la .momorph/specs/*/plan.md)",
+      "Bash(ln -sf ../313_9137-floating-action-button-collapsed/tasks.md .momorph/specs/313_9139-floating-action-button-expanded/tasks.md)",
+      "Bash(ln -sf ../313_9137-floating-action-button-collapsed/tasks.md .momorph/specs/3204_6051-the-le-update/tasks.md)",
+      "Bash(ls -la .momorph/specs/*/tasks.md)",
+      "Bash(ls -la public/images/rules/badge-*.png)"
     ]
   }
 }

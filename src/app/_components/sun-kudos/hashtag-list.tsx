@@ -19,7 +19,7 @@ export function HashtagList({ hashtags, onTagClick }: HashtagListProps) {
             key={tag}
             type="button"
             onClick={() => onTagClick?.(tag)}
-            className="font-montserrat font-bold text-base text-[#00101A] tracking-[0.5px] whitespace-nowrap overflow-hidden text-ellipsis"
+            className="font-montserrat font-bold text-base text-[#D4271D] tracking-[0.5px] whitespace-nowrap overflow-hidden text-ellipsis"
           >
             {label}
           </button>

@@ -2,13 +2,16 @@ import type { Metadata } from 'next'
 import { createClient } from '@/libs/supabase/server'
 import { HomepageHeader } from '@/app/_components/homepage/header'
 import { HomepageFooter } from '@/app/_components/homepage/footer'
-import { WidgetButton } from '@/app/_components/homepage/widget-button'
+import { WriteKudoTrigger } from '@/app/_components/sun-kudos/write-kudo/write-kudo-trigger'
 import { KudosKeyvisual } from '@/app/_components/sun-kudos/kudos-keyvisual'
 import { KudosBanner } from '@/app/_components/sun-kudos/kudos-banner'
 import { KudosActionBar } from '@/app/_components/sun-kudos/kudos-action-bar'
 import { SectionHeader } from '@/app/_components/sun-kudos/section-header'
 import { KudosFeed } from '@/app/_components/sun-kudos/kudos-feed'
 import { HighlightCarousel } from '@/app/_components/sun-kudos/highlight-carousel'
+import { SpotlightBoard } from '@/app/_components/sun-kudos/spotlight-board'
+import { KudosStatsPanel } from '@/app/_components/sun-kudos/kudos-stats-panel'
+import { TopSunnerLeaderboard } from '@/app/_components/sun-kudos/top-sunner-leaderboard'
 import {
   fetchKudosFeed,
   fetchHighlightedKudos,
@@ -69,29 +72,21 @@ export default async function SunKudosPage() {
       {/* Spotlight Board zone — 120px gap between major sections (Bìa gap in Figma) */}
       <section className="relative z-[1] mt-[120px]">
         <SectionHeader title="SPOTLIGHT BOARD" />
-        {/* TODO: T046 — Wire SpotlightBoard here */}
-        <div className="px-4 md:px-[144px] mt-6 text-white/40 text-sm">
-          [Spotlight Board placeholder — {spotlight.total_kudos} kudos, {spotlight.users.length} users]
-        </div>
+        <SpotlightBoard data={spotlight} />
       </section>
 
       {/* All Kudos + Stats Sidebar zone — 120px gap */}
       <section className="relative z-[1] mt-[120px]">
         <SectionHeader title="ALL KUDOS" />
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-[var(--spacing-kudos-feed-sidebar)] px-4 md:px-[144px] mt-6">
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-[80px] px-4 md:px-[144px] mt-6 max-w-[1440px] mx-auto">
           {/* Feed column */}
           <div className="flex-1 min-w-0 lg:max-w-[680px]">
             <KudosFeed initialKudos={feedKudos} initialHasMore={feedHasMore} />
           </div>
           {/* Sidebar column */}
-          <div className="w-full lg:w-[422px] flex flex-col gap-[var(--spacing-kudos-sidebar-gap)]">
-            {/* TODO: T043 — Wire KudosStatsPanel + TopSunnerLeaderboard here */}
-            <div className="text-white/40 text-sm">
-              [Stats placeholder — received: {stats.received_count}, sent: {stats.sent_count}]
-            </div>
-            <div className="text-white/40 text-sm">
-              [Leaderboard placeholder — {leaderboard.length} items]
-            </div>
+          <div className="w-full lg:w-[422px] flex flex-col gap-6">
+            <KudosStatsPanel stats={stats} />
+            <TopSunnerLeaderboard users={leaderboard} />
           </div>
         </div>
       </section>
@@ -99,7 +94,7 @@ export default async function SunKudosPage() {
       <div className="mt-[120px]">
         <HomepageFooter />
       </div>
-      <WidgetButton />
+      <WriteKudoTrigger initialHashtags={hashtags} />
     </main>
   )
 }

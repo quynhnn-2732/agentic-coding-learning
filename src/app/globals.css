@@ -124,6 +124,18 @@
   --radius-kudos-content-block: 12px;
   --radius-kudos-btn-gift: 8px;
 
+  /* Write Kudo Modal tokens */
+  --color-focus-ring: #FFEA9E;
+  --color-required: #FF0000;
+  --color-link-text: #C4A35A;
+  --color-hashtag-selected: rgba(255, 234, 158, 0.20);
+  --radius-btn-secondary: 4px;
+
+  /* FAB + Rules Panel */
+  --spacing-fab-expanded-gap: 20px;
+  --color-fab-close: rgba(212, 39, 29, 1);
+  --radius-fab-btn: 4px;
+
   /* Spacing — Kudos-specific */
   --spacing-kudos-section-gap: 40px;
   --spacing-kudos-card-gap: 16px;
@@ -148,6 +160,19 @@
 
 .highlight-kudos-carousel .swiper-slide-active {
   opacity: 1;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 300ms ease-out;
 }
 
 @keyframes fadeSlideUp {

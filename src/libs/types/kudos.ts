@@ -66,3 +66,23 @@ export interface HeartToggleResponse {
   hearted: boolean
   heart_count: number
 }
+
+export interface CreateKudoPayload {
+  recipient_id: string
+  title: string
+  body: string
+  hashtag_ids: string[]
+  image_urls: string[]
+  is_anonymous: boolean
+}
+
+export interface KudoFormState {
+  recipient: KudoUser | null
+  title: string
+  body: string
+  selectedHashtags: Hashtag[]
+  images: { url: string; filename: string }[]
+  isAnonymous: boolean
+  isSubmitting: boolean
+  errors: Partial<Record<'recipient' | 'title' | 'body' | 'hashtags', string>>
+}

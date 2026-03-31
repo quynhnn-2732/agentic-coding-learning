@@ -75,3 +75,12 @@ export const departmentSchema = z.object({
   id: z.string(),
   name: z.string(),
 })
+
+export const createKudoSchema = z.object({
+  recipient_id: z.string().min(1, 'Người nhận là bắt buộc'),
+  title: z.string().min(1, 'Danh hiệu là bắt buộc').max(200, 'Danh hiệu tối đa 200 ký tự'),
+  body: z.string().min(1, 'Nội dung là bắt buộc').max(5000, 'Nội dung tối đa 5000 ký tự'),
+  hashtag_ids: z.array(z.string()).min(1, 'Chọn ít nhất 1 hashtag').max(5, 'Tối đa 5 hashtag'),
+  image_urls: z.array(z.string().url()).max(5, 'Tối đa 5 ảnh').default([]),
+  is_anonymous: z.boolean().default(false),
+})

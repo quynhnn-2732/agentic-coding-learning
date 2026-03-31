@@ -23,6 +23,8 @@ export function HighlightCarousel({
   departments,
 }: HighlightCarouselProps) {
   const swiperRef = useRef<SwiperType | null>(null);
+  const hashtagRef = useRef<HTMLDivElement>(null);
+  const departmentRef = useRef<HTMLDivElement>(null);
   const [kudos, setKudos] = useState<Kudo[]>(initialKudos);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -38,12 +40,16 @@ export function HighlightCarousel({
   const totalSlides = kudos.length;
 
   useEffect(() => {
-    function handleClickOutside() {
-      setShowHashtagDropdown(false);
-      setShowDepartmentDropdown(false);
+    function handleClickOutside(e: MouseEvent) {
+      if (hashtagRef.current && !hashtagRef.current.contains(e.target as Node)) {
+        setShowHashtagDropdown(false);
+      }
+      if (departmentRef.current && !departmentRef.current.contains(e.target as Node)) {
+        setShowDepartmentDropdown(false);
+      }
     }
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleFilterChange = useCallback(
@@ -118,7 +124,7 @@ export function HighlightCarousel({
 
           {/* Filter buttons */}
           <div className="flex items-center gap-2">
-            <div className="relative" onClick={(e) => e.stopPropagation()}>
+            <div className="relative" ref={hashtagRef}>
               <button
                 type="button"
                 onClick={() => {
@@ -161,7 +167,7 @@ export function HighlightCarousel({
               )}
             </div>
 
-            <div className="relative" onClick={(e) => e.stopPropagation()}>
+            <div className="relative" ref={departmentRef}>
               <button
                 type="button"
                 onClick={() => {
@@ -258,7 +264,6 @@ export function HighlightCarousel({
           slidesPerView={1.2}
           centeredSlides
           loop
-          loopAdditionalSlides={2}
           spaceBetween={32}
           speed={600}
           autoplay={{
@@ -273,11 +278,9 @@ export function HighlightCarousel({
           className="w-full"
           style={{ overflow: "hidden" }}
         >
-          {kudos.map((kudo) => (
+          {kudos.map((kudo, index) => (
             <SwiperSlide key={kudo.id}>
-              {({ isActive }) => (
-                <HighlightKudoCard kudo={kudo} isActive={isActive} />
-              )}
+              <HighlightKudoCard kudo={kudo} isActive={activeIndex === index} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -325,9 +328,9 @@ export function HighlightCarousel({
             />
           </svg>
         </button>
-        <span className="font-montserrat font-bold text-[28px] leading-9">
-          <span className="text-white">{currentPage}</span>
-          <span style={{ color: "var(--color-kudos-text-secondary)" }}>
+        <span className="font-montserrat font-bold leading-9">
+          <span className="text-[36px]" style={{ color: "#FFEA9E" }}>{currentPage}</span>
+          <span className="text-[28px]" style={{ color: "var(--color-kudos-text-secondary)" }}>
             /{totalSlides}
           </span>
         </span>

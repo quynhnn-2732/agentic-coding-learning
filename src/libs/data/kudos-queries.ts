@@ -63,14 +63,26 @@ const MOCK_LEADERBOARD: KudoUser[] = Array.from({ length: 10 }, (_, i) => ({
   name: 'Huỳnh Dương Xuân',
 }))
 
+const SPOTLIGHT_NAMES = [
+  'Nguyễn Hoàng Long', 'Trần Minh Châu', 'Phạm Thị Hà', 'Lê Quang Huy',
+  'Nguyễn Bá Châu', 'Huỳnh Dương Xuân', 'Võ Thanh Tùng', 'Đặng Thu Hương',
+  'Bùi Minh Đức', 'Hoàng Thị Mai', 'Ngô Văn Thắng', 'Trương Quốc Bảo',
+  'Phan Anh Tuấn', 'Lý Thị Ngọc', 'Dương Minh Trí', 'Vũ Đình Nam',
+  'Đinh Thị Lan', 'Cao Xuân Phong', 'Hồ Văn Kiệt', 'Mai Thanh Sơn',
+]
+
 const MOCK_SPOTLIGHT: SpotlightData = {
-  users: Array.from({ length: 20 }, (_, i) => ({
-    name: `Sunner ${i + 1}`,
-    kudos_received: Math.floor(Math.random() * 50) + 1,
+  users: SPOTLIGHT_NAMES.map((name, i) => ({
+    name,
+    kudos_received: [35, 12, 8, 28, 18, 42, 6, 22, 15, 9, 31, 25, 14, 7, 38, 11, 20, 16, 27, 33][i] ?? 10,
   })),
   ticker: [
-    { time: '08:30', user_name: 'Nguyễn Bá Châu' },
-    { time: '08:25', user_name: 'Huỳnh Dương' },
+    { time: '08:30PM', user_name: 'Nguyễn Bá Chức đã nhận được một Kudos mới' },
+    { time: '08:30PM', user_name: 'Nguyễn Bá Chức đã nhận được một Kudos mới' },
+    { time: '08:30PM', user_name: 'Nguyễn Bá Chức đã nhận được một Kudos mới' },
+    { time: '08:30PM', user_name: 'Nguyễn Bá Chức đã nhận được một Kudos mới' },
+    { time: '08:30PM', user_name: 'Nguyễn Bá Chức đã nhận được một Kudos mới' },
+    { time: '08:30PM', user_name: 'Nguyễn Bá Chức đã nhận được một Kudos mới' },
   ],
   total_kudos: 388,
 }

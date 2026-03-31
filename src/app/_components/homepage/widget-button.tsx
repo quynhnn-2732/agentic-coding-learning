@@ -1,15 +1,59 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { WidgetPenIcon } from '@/app/_components/icons/widget-pen-icon'
 import { WidgetSaaIcon } from '@/app/_components/icons/widget-saa-icon'
+import { CloseIcon } from '@/app/_components/icons/close-icon'
+import { RulesPanel } from '@/app/_components/sun-kudos/rules-panel'
 
-export function WidgetButton() {
+interface WidgetButtonProps {
+  onWriteKudo?: () => void
+}
+
+export function WidgetButton({ onWriteKudo }: WidgetButtonProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isRulesOpen, setIsRulesOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const fabRef = useRef<HTMLButtonElement>(null)
+
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false)
+    fabRef.current?.focus()
+  }, [])
+
+  // Click-outside handler
+  useEffect(() => {
+    if (!isMenuOpen) return
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target as Node) &&
+        fabRef.current &&
+        !fabRef.current.contains(e.target as Node)
+      ) {
+        closeMenu()
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isMenuOpen, closeMenu])
+
+  // Escape key handler
+  useEffect(() => {
+    if (!isMenuOpen) return
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        closeMenu()
+      }
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [isMenuOpen, closeMenu])
 
   return (
     <>
       <button
+        ref={fabRef}
         type="button"
         aria-label="Thao tác nhanh"
         aria-expanded={isMenuOpen}
@@ -21,8 +65,53 @@ export function WidgetButton() {
       </button>
 
       {isMenuOpen && (
-        <div role="menu" className="fixed bottom-32 right-[19px] z-50" />
+        <div
+          ref={menuRef}
+          role="menu"
+          className="fixed bottom-10 right-[19px] z-50 flex flex-col items-end gap-[var(--spacing-fab-expanded-gap)]"
+        >
+          <button
+            type="button"
+            role="menuitem"
+            onClick={() => {
+              setIsRulesOpen(true)
+              setIsMenuOpen(false)
+            }}
+            className="w-[149px] h-16 bg-[var(--color-accent-gold)] rounded-[var(--radius-fab-btn)] flex items-center gap-2 px-4 font-montserrat font-bold text-2xl leading-8 text-[var(--color-bg-dark)] cursor-pointer transition-all duration-150 ease-in-out hover:bg-[#F5E08E] hover:[box-shadow:0_2px_8px_0_rgba(0,0,0,0.2)] active:bg-[#EBD67E] active:scale-[0.98] focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-accent-gold)] focus-visible:outline-offset-2"
+          >
+            <WidgetSaaIcon />
+            <span>Thể lệ</span>
+          </button>
+
+          <button
+            type="button"
+            role="menuitem"
+            onClick={() => {
+              setIsMenuOpen(false)
+              onWriteKudo?.()
+            }}
+            className="w-[214px] h-16 bg-[var(--color-accent-gold)] rounded-[var(--radius-fab-btn)] flex items-center gap-2 px-4 font-montserrat font-bold text-2xl leading-8 text-[var(--color-bg-dark)] cursor-pointer transition-all duration-150 ease-in-out hover:bg-[#F5E08E] hover:[box-shadow:0_2px_8px_0_rgba(0,0,0,0.2)] active:bg-[#EBD67E] active:scale-[0.98] focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-accent-gold)] focus-visible:outline-offset-2"
+          >
+            <WidgetPenIcon />
+            <span>Viết KUDOS</span>
+          </button>
+
+          <button
+            type="button"
+            role="menuitem"
+            aria-label="Đóng menu"
+            onClick={closeMenu}
+            className="w-14 h-14 bg-[var(--color-fab-close)] rounded-full flex items-center justify-center cursor-pointer transition-all duration-150 ease-in-out hover:bg-[#B8221A] active:bg-[#9E1D16] focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-fab-close)] focus-visible:outline-offset-2"
+          >
+            <CloseIcon color="white" />
+          </button>
+        </div>
       )}
+
+      <RulesPanel
+        isOpen={isRulesOpen}
+        onClose={() => setIsRulesOpen(false)}
+      />
     </>
   )
 }
