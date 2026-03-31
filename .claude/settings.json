@@ -31,7 +31,10 @@
       "Bash(ln -sf ../313_9137-floating-action-button-collapsed/tasks.md .momorph/specs/313_9139-floating-action-button-expanded/tasks.md)",
       "Bash(ln -sf ../313_9137-floating-action-button-collapsed/tasks.md .momorph/specs/3204_6051-the-le-update/tasks.md)",
       "Bash(ls -la .momorph/specs/*/tasks.md)",
-      "Bash(ls -la public/images/rules/badge-*.png)"
+      "Bash(ls -la public/images/rules/badge-*.png)",
+      "Bash(yarn deploy:*)",
+      "Bash(npx wrangler:*)",
+      "Bash(git -C /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on remote -v)"
     ]
   }
 }

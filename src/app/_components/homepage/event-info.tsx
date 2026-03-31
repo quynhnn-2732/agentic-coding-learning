@@ -52,7 +52,7 @@ export function EventInfo({ datetimeIso, location }: EventInfoProps) {
       </div>
       {/* Row 2: livestream note */}
       <p className="font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.5px] text-white">
-        Tường thuật trực tiếp qua sóng Livestream
+        Tường thuật trực tiếp qua sóng Livestream 123
       </p>
     </div>
   )

@@ -20,6 +20,7 @@ const ContentSecurityPolicy = [
 const nextConfig: NextConfig = {
   transpilePackages: ['swiper'],
   images: {
+    unoptimized: true,
     remotePatterns: [
       { protocol: 'https', hostname: 'lh3.googleusercontent.com' },
     ],
