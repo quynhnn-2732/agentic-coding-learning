@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { CloseIcon } from '../../icons/close-icon'
 import { LinkIcon } from '../../icons/link-icon'
 
@@ -11,6 +12,7 @@ interface AddLinkDialogProps {
 }
 
 export function AddLinkDialog({ initialText = '', onSave, onCancel }: AddLinkDialogProps) {
+  const t = useTranslations('AddLink')
   const [text, setText] = useState(initialText)
   const [url, setUrl] = useState('')
   const [errors, setErrors] = useState<{ text?: string; url?: string }>({})
@@ -35,23 +37,23 @@ export function AddLinkDialog({ initialText = '', onSave, onCancel }: AddLinkDia
     const newErrors: { text?: string; url?: string } = {}
 
     if (!text.trim()) {
-      newErrors.text = 'Nội dung không được để trống'
+      newErrors.text = t('contentRequired')
     } else if (text.length > 100) {
-      newErrors.text = 'Nội dung tối đa 100 ký tự'
+      newErrors.text = t('contentMaxLength')
     }
 
     if (!url.trim()) {
-      newErrors.url = 'URL không được để trống'
+      newErrors.url = t('urlRequired')
     } else if (url.length > 2048) {
-      newErrors.url = 'URL không được vượt quá 2048 ký tự'
+      newErrors.url = t('urlMaxLength')
     } else {
       try {
         const parsed = new URL(url)
         if (!['http:', 'https:'].includes(parsed.protocol)) {
-          newErrors.url = 'URL phải bắt đầu bằng http:// hoặc https://'
+          newErrors.url = t('urlInvalid')
         }
       } catch {
-        newErrors.url = 'URL phải bắt đầu bằng http:// hoặc https://'
+        newErrors.url = t('urlInvalid')
       }
     }
 
@@ -75,18 +77,18 @@ export function AddLinkDialog({ initialText = '', onSave, onCancel }: AddLinkDia
       ref={dialogRef}
       role="dialog"
       aria-modal="true"
-      aria-label="Thêm đường dẫn"
+      aria-label={t('title')}
       className="absolute left-0 top-full z-20 mt-2 flex w-full flex-col gap-8 rounded-[var(--radius-kudos-card)] bg-[var(--color-kudos-card-bg)] p-10 shadow-lg max-md:p-6"
     >
       {/* Title */}
       <h3 className="font-montserrat text-[32px] font-bold leading-10 text-[var(--color-bg-dark)]">
-        Thêm đường dẫn
+        {t('title')}
       </h3>
 
       {/* Nội dung field */}
       <div className="flex flex-row items-center gap-4 max-md:flex-col max-md:items-start">
         <label className="font-montserrat text-[22px] font-bold leading-7 text-[var(--color-bg-dark)] whitespace-nowrap">
-          Nội dung
+          {t('contentLabel')}
         </label>
         <div className="flex-1 w-full">
           <input
@@ -106,7 +108,7 @@ export function AddLinkDialog({ initialText = '', onSave, onCancel }: AddLinkDia
       {/* URL field */}
       <div className="flex flex-row items-center gap-4 max-md:flex-col max-md:items-start">
         <label className="font-montserrat text-[22px] font-bold leading-7 text-[var(--color-bg-dark)] whitespace-nowrap">
-          URL
+          {t('urlLabel')}
         </label>
         <div className="relative flex-1 w-full">
           <input
@@ -130,7 +132,7 @@ export function AddLinkDialog({ initialText = '', onSave, onCancel }: AddLinkDia
           onClick={onCancel}
           className="flex items-center gap-2 self-stretch rounded-[var(--radius-btn-secondary)] border border-[var(--color-btn-kudos-border)] bg-[var(--color-btn-kudos-bg)] px-10 py-4 font-montserrat text-base font-bold text-[var(--color-bg-dark)] transition-colors duration-150 hover:bg-[var(--color-kudos-btn-hover)]"
         >
-          Hủy
+          {t('cancel')}
           <CloseIcon size={24} />
         </button>
         <button
@@ -138,7 +140,7 @@ export function AddLinkDialog({ initialText = '', onSave, onCancel }: AddLinkDia
           onClick={handleSave}
           className="flex flex-1 items-center justify-center gap-2 rounded-[var(--radius-kudos-btn-gift)] bg-[var(--color-accent-gold)] py-4 font-montserrat text-[22px] font-bold text-[var(--color-bg-dark)] transition-colors duration-150 hover:bg-[var(--color-accent-gold-glow)]"
         >
-          Lưu
+          {t('save')}
           <LinkIcon size={24} />
         </button>
       </div>

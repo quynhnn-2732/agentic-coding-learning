@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
+import { IntlWrapper } from '../helpers/intl-wrapper'
 
 // Mock server action
 vi.mock('@/libs/auth/actions', () => ({
@@ -9,7 +10,7 @@ vi.mock('@/libs/auth/actions', () => ({
 describe('LoginButton', () => {
   it('renders button text and Google icon', async () => {
     const { LoginButton } = await import('@/app/_components/login/login-button')
-    render(<LoginButton onError={vi.fn()} />)
+    render(<IntlWrapper><LoginButton onError={vi.fn()} /></IntlWrapper>)
 
     expect(screen.getByRole('button')).toBeInTheDocument()
     expect(screen.getByText(/LOGIN With Google/i)).toBeInTheDocument()
@@ -21,7 +22,7 @@ describe('LoginButton', () => {
     vi.mocked(signInWithGoogle).mockImplementation(() => new Promise(() => {}))
 
     const { LoginButton } = await import('@/app/_components/login/login-button')
-    render(<LoginButton onError={vi.fn()} />)
+    render(<IntlWrapper><LoginButton onError={vi.fn()} /></IntlWrapper>)
 
     const btn = screen.getByRole('button')
     fireEvent.click(btn)
@@ -40,7 +41,7 @@ describe('LoginButton', () => {
     })
 
     const { LoginButton } = await import('@/app/_components/login/login-button')
-    render(<LoginButton onError={vi.fn()} />)
+    render(<IntlWrapper><LoginButton onError={vi.fn()} /></IntlWrapper>)
 
     fireEvent.click(screen.getByRole('button'))
     await vi.waitFor(() => {
@@ -54,7 +55,7 @@ describe('LoginButton', () => {
 
     const onError = vi.fn()
     const { LoginButton } = await import('@/app/_components/login/login-button')
-    render(<LoginButton onError={onError} />)
+    render(<IntlWrapper><LoginButton onError={onError} /></IntlWrapper>)
 
     fireEvent.click(screen.getByRole('button'))
     await vi.waitFor(() => {

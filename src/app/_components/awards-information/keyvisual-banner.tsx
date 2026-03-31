@@ -1,6 +1,9 @@
 import Image from 'next/image'
+import { getTranslations } from 'next-intl/server'
 
-export function KeyvisualBanner() {
+export async function KeyvisualBanner() {
+  const t = await getTranslations('AwardsInfo')
+  const tHomepage = await getTranslations('Homepage')
   return (
     <div className="relative w-full h-[440px] md:min-h-[calc(100vh-80px)] overflow-hidden">
       <Image
@@ -23,7 +26,7 @@ export function KeyvisualBanner() {
       <div className="absolute left-4 md:left-[144px] top-[96px]">
         <Image
           src="/images/root-further-logo.png"
-          alt="ROOT FURTHER"
+          alt={tHomepage('rootFurther')}
           width={451}
           height={200}
           priority
@@ -34,12 +37,12 @@ export function KeyvisualBanner() {
       {/* A_Title overlay — subtitle + divider + page heading inside banner (Figma "Bìa" layout) */}
       <div className="absolute left-4 md:left-[144px] right-4 md:right-[144px] bottom-[40px] md:bottom-[80px] flex flex-col gap-[16px]">
         <span className="font-montserrat font-bold text-[24px] leading-[32px] text-white text-center">
-          Sun* annual awards 2025
+          {t('saaSubtitle')}
         </span>
         {/* Rectangle 26 — thin decorative divider between subtitle and heading */}
         <div className="w-full h-px bg-white/30" />
         <h1 className="font-montserrat font-bold text-[32px] md:text-[57px] leading-[40px] md:leading-[64px] tracking-[-0.25px] text-[#FFEA9E] text-center">
-          Hệ thống giải thưởng SAA 2025
+          {t('heading')}
         </h1>
       </div>
     </div>

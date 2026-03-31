@@ -1,18 +1,21 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 interface ErrorProps {
   error: Error & { digest?: string }
   reset: () => void
 }
 
 export default function SunKudosError({ error, reset }: ErrorProps) {
+  const t = useTranslations('ErrorPage')
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-[var(--color-bg-dark)] px-4">
       <h2 className="font-montserrat text-2xl font-bold text-white mb-4">
-        Đã xảy ra lỗi
+        {t('title')}
       </h2>
       <p className="text-[var(--color-kudos-text-secondary)] mb-6 text-center max-w-md">
-        {error.message || 'Không thể tải trang Sun* Kudos. Vui lòng thử lại.'}
+        {error.message || t('defaultMessage')}
       </p>
       <button
         type="button"
@@ -23,7 +26,7 @@ export default function SunKudosError({ error, reset }: ErrorProps) {
           color: 'var(--color-bg-dark)',
         }}
       >
-        Thử lại
+        {t('retry')}
       </button>
     </main>
   )

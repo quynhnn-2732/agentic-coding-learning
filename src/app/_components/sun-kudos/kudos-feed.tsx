@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 import type { Kudo } from '@/libs/types/kudos'
 import { fetchKudosFeed } from '@/libs/data/kudos-queries'
 import { KudoPostCard } from './kudo-post-card'
@@ -12,6 +13,7 @@ interface KudosFeedProps {
 }
 
 export function KudosFeed({ initialKudos, initialHasMore, onHashtagClick }: KudosFeedProps) {
+  const t = useTranslations('KudosFeed')
   const [kudos, setKudos] = useState<Kudo[]>(initialKudos)
   const [hasMore, setHasMore] = useState(initialHasMore)
   const [page, setPage] = useState(1)
@@ -35,7 +37,7 @@ export function KudosFeed({ initialKudos, initialHasMore, onHashtagClick }: Kudo
     return (
       <div className="flex flex-col items-center justify-center py-16 text-center">
         <p className="font-montserrat text-lg text-white mb-4">
-          Chưa có lời cảm ơn nào — hãy là người đầu tiên ghi nhận!
+          {t('empty')}
         </p>
         <a
           href="/write-kudo"
@@ -45,14 +47,14 @@ export function KudosFeed({ initialKudos, initialHasMore, onHashtagClick }: Kudo
             color: 'var(--color-bg-dark)',
           }}
         >
-          Ghi nhận ngay
+          {t('recognizeNow')}
         </a>
       </div>
     )
   }
 
   return (
-    <div className="flex flex-col gap-[var(--spacing-kudos-feed-gap)]" role="feed" aria-label="Danh sách Kudos">
+    <div className="flex flex-col gap-[var(--spacing-kudos-feed-gap)]" role="feed" aria-label={t('kudosList')}>
       {kudos.map((kudo) => (
         <KudoPostCard key={kudo.id} kudo={kudo} onHashtagClick={onHashtagClick} />
       ))}
@@ -65,7 +67,7 @@ export function KudosFeed({ initialKudos, initialHasMore, onHashtagClick }: Kudo
           className="self-center px-8 py-3 rounded-[var(--radius-kudos-btn-gift)] border font-montserrat font-bold text-base text-white transition-colors duration-150 cursor-pointer hover:bg-[var(--color-kudos-btn-hover)] disabled:opacity-50"
           style={{ borderColor: 'var(--color-btn-kudos-border)' }}
         >
-          {isLoading ? 'Đang tải...' : 'Xem thêm'}
+          {isLoading ? t('loading') : t('loadMore')}
         </button>
       )}
     </div>

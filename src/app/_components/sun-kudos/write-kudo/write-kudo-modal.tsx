@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useCallback, useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { createPortal } from 'react-dom'
 import { CloseIcon } from '../../icons/close-icon'
 import { SentArrowIcon } from '../../icons/sent-arrow-icon'
@@ -25,8 +26,17 @@ export function WriteKudoModal({
   onSuccess,
   initialHashtags,
 }: WriteKudoModalProps) {
+  const t = useTranslations('WriteKudo')
   const [mounted, setMounted] = useState(false)
   useEffect(() => { setMounted(true) }, [])
+
+  useEffect(() => {
+    if (!isOpen) return
+    document.body.style.overflow = 'hidden'
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [isOpen])
 
   const [formState, setFormState] = useState<KudoFormState>({
     recipient: null,
@@ -48,10 +58,10 @@ export function WriteKudoModal({
   const handleSubmit = async () => {
     // Validate
     const errors: KudoFormState['errors'] = {}
-    if (!formState.recipient) errors.recipient = 'Người nhận là bắt buộc'
-    if (!formState.title.trim()) errors.title = 'Danh hiệu là bắt buộc'
-    if (!formState.body.trim() || formState.body === '<p></p>') errors.body = 'Nội dung là bắt buộc'
-    if (formState.selectedHashtags.length === 0) errors.hashtags = 'Chọn ít nhất 1 hashtag'
+    if (!formState.recipient) errors.recipient = t('recipientRequired')
+    if (!formState.title.trim()) errors.title = t('titleRequired')
+    if (!formState.body.trim() || formState.body === '<p></p>') errors.body = t('bodyRequired')
+    if (formState.selectedHashtags.length === 0) errors.hashtags = t('hashtagRequired')
 
     if (Object.keys(errors).length > 0) {
       setFormState((prev) => ({ ...prev, errors }))
@@ -139,7 +149,7 @@ export function WriteKudoModal({
           id="write-kudo-title"
           className="text-center font-montserrat text-[32px] font-bold leading-10 text-[var(--color-bg-dark)]"
         >
-          Gửi lời cám ơn và ghi nhận đến đồng đội
+          {t('modalTitle')}
         </h2>
 
         {/* Recipient Search */}
@@ -222,7 +232,7 @@ export function WriteKudoModal({
             onClick={handleClose}
             className="flex items-center gap-2 self-stretch rounded-[var(--radius-btn-secondary)] border border-[var(--color-btn-kudos-border)] bg-[var(--color-btn-kudos-bg)] px-10 py-4 font-montserrat text-base font-bold text-[var(--color-bg-dark)] transition-colors duration-150 hover:bg-[var(--color-kudos-btn-hover)]"
           >
-            Hủy
+            {t('cancel')}
             <CloseIcon size={24} />
           </button>
           <button
@@ -231,7 +241,7 @@ export function WriteKudoModal({
             disabled={!isFormValid || formState.isSubmitting}
             className="flex flex-1 items-center justify-center gap-2 rounded-[var(--radius-kudos-btn-gift)] bg-[var(--color-accent-gold)] py-4 font-montserrat text-[22px] font-bold text-[var(--color-bg-dark)] transition-colors duration-150 hover:bg-[var(--color-accent-gold-glow)] disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {formState.isSubmitting ? 'Đang gửi...' : 'Gửi'}
+            {formState.isSubmitting ? t('sending') : t('send')}
             {!formState.isSubmitting && <SentArrowIcon size={24} />}
           </button>
         </div>

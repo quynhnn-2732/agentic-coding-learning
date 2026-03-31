@@ -1,3 +1,5 @@
+import { getTranslations } from 'next-intl/server'
+
 interface EventInfoProps {
   datetimeIso: string
   location: string
@@ -32,7 +34,8 @@ function formatTime(isoString: string): string {
 const LABEL = 'font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.15px] text-white'
 const VALUE = 'font-montserrat font-bold text-[24px] leading-[32px] text-[#FFEA9E]'
 
-export function EventInfo({ datetimeIso, location }: EventInfoProps) {
+export async function EventInfo({ datetimeIso, location }: EventInfoProps) {
+  const t = await getTranslations('EventInfo')
   const date = formatDate(datetimeIso)
   const time = formatTime(datetimeIso)
 
@@ -41,18 +44,18 @@ export function EventInfo({ datetimeIso, location }: EventInfoProps) {
       {/* Row 1: time + venue */}
       <div className="flex flex-row flex-wrap gap-[60px]">
         <div className="flex items-baseline gap-[8px]">
-          <span className={LABEL}>Thời gian:</span>
+          <span className={LABEL}>{t('time')}</span>
           {date && <span className={VALUE}>{date}</span>}
           {time && <span className={VALUE}>{time}</span>}
         </div>
         <div className="flex items-baseline gap-[8px]">
-          <span className={LABEL}>Địa điểm:</span>
+          <span className={LABEL}>{t('location')}</span>
           <span className={VALUE}>{location}</span>
         </div>
       </div>
       {/* Row 2: livestream note */}
       <p className="font-montserrat font-bold text-[16px] leading-[24px] tracking-[0.5px] text-white">
-        Tường thuật trực tiếp qua sóng Livestream 123
+        {t('livestream')}
       </p>
     </div>
   )

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import type { CountdownState } from '@/libs/types/homepage'
 
 interface CountdownProps {
@@ -62,6 +63,7 @@ function DigitGroup({ value, label }: DigitGroupProps) {
 }
 
 export function Countdown({ targetDateIso }: CountdownProps) {
+  const t = useTranslations('Homepage')
   const targetMs = (() => {
     try {
       const ms = new Date(targetDateIso).getTime()
@@ -87,13 +89,13 @@ export function Countdown({ targetDateIso }: CountdownProps) {
     <div className="flex flex-col gap-[16px]">
       {!isEventPast && (
         <span className="font-montserrat font-bold text-[24px] leading-[32px] text-white">
-          Coming soon
+          {t('comingSoon')}
         </span>
       )}
       <div className="flex flex-row gap-[40px]">
-        <DigitGroup value={pad(days)} label="DAYS" />
-        <DigitGroup value={pad(hours)} label="HOURS" />
-        <DigitGroup value={pad(minutes)} label="MINUTES" />
+        <DigitGroup value={pad(days)} label={t('days')} />
+        <DigitGroup value={pad(hours)} label={t('hours')} />
+        <DigitGroup value={pad(minutes)} label={t('minutes')} />
       </div>
     </div>
   )

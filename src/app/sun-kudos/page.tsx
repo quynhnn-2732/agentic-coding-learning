@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { createClient } from '@/libs/supabase/server'
 import { HomepageHeader } from '@/app/_components/homepage/header'
 import { HomepageFooter } from '@/app/_components/homepage/footer'
-import { WriteKudoTrigger } from '@/app/_components/sun-kudos/write-kudo/write-kudo-trigger'
 import { KudosKeyvisual } from '@/app/_components/sun-kudos/kudos-keyvisual'
 import { KudosBanner } from '@/app/_components/sun-kudos/kudos-banner'
 import { KudosActionBar } from '@/app/_components/sun-kudos/kudos-action-bar'
@@ -50,7 +49,7 @@ export default async function SunKudosPage() {
   ])
 
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-[var(--color-bg-dark)]">
+    <main className="relative min-h-screen overflow-x-clip bg-[var(--color-bg-dark)]">
       <KudosKeyvisual />
       <HomepageHeader avatarUrl={avatarUrl} activePath="sun-kudos" />
 
@@ -94,7 +93,6 @@ export default async function SunKudosPage() {
       <div className="mt-[120px]">
         <HomepageFooter />
       </div>
-      <WriteKudoTrigger initialHashtags={hashtags} />
     </main>
   )
 }

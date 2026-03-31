@@ -1,0 +1,214 @@
+{
+  "Header": {
+    "goToHomepage": "Về trang chủ",
+    "aboutSaa": "About SAA 2025",
+    "awardsInfo": "Awards Information",
+    "sunKudos": "Sun* Kudos",
+    "notification": "Thông báo"
+  },
+  "Footer": {
+    "aboutSaa": "About SAA 2025",
+    "awardsInfo": "Awards Information",
+    "sunKudos": "Sun* Kudos",
+    "standards": "Tiêu chuẩn chung",
+    "copyright": "Bản quyền thuộc về Sun* © 2025"
+  },
+  "Widget": {
+    "quickAction": "Thao tác nhanh",
+    "rules": "Thể lệ",
+    "writeKudos": "Viết KUDOS",
+    "closeMenu": "Đóng menu"
+  },
+  "RulesPanel": {
+    "title": "Thể lệ",
+    "close": "Đóng",
+    "writeKudos": "Viết KUDOS"
+  },
+  "Language": {
+    "selectLanguage": "Chọn ngôn ngữ"
+  },
+  "Login": {
+    "heroLine1": "Bắt đầu hành trình của bạn cùng SAA 2025.",
+    "heroLine2": "Đăng nhập để khám phá!",
+    "loginWithGoogle": "Đăng nhập bằng Google",
+    "loginFailed": "Đăng nhập thất bại. Vui lòng thử lại sau.",
+    "closeError": "Đóng thông báo lỗi"
+  },
+  "Profile": {
+    "title": "Profile",
+    "comingSoon": "Profile page coming soon."
+  },
+  "ProfileDropdown": {
+    "account": "Tài khoản",
+    "profileMenu": "Profile menu",
+    "profile": "Profile",
+    "logout": "Logout",
+    "unexpectedError": "An unexpected error occurred"
+  },
+  "ErrorPage": {
+    "title": "Đã xảy ra lỗi",
+    "defaultMessage": "Không thể tải trang Sun* Kudos. Vui lòng thử lại.",
+    "retry": "Thử lại"
+  },
+  "Homepage": {
+    "aboutAwards": "ABOUT AWARDS",
+    "aboutKudos": "ABOUT KUDOS",
+    "rootFurther": "ROOT FURTHER",
+    "saaSubtitle": "Sun* annual awards 2025",
+    "awardsHeading": "Hệ thống giải thưởng",
+    "kudosMovement": "Phong trào ghi nhận",
+    "sunKudos": "Sun* Kudos",
+    "newInSaa": "ĐIỂM MỚI CỦA SAA 2025",
+    "details": "Chi tiết",
+    "comingSoon": "Coming soon",
+    "days": "DAYS",
+    "hours": "HOURS",
+    "minutes": "MINUTES",
+    "kudosDesc": "Chương trình Sun* Kudos nằm trong khuôn khổ giải thưởng Sun* Annual Awards, là nơi mỗi Sunner có thể gửi lời cám ơn và ghi nhận đến đồng đội thông qua những thẻ Kudos — một cách đơn giản nhưng đầy ý nghĩa.",
+    "b4Block1p1": "Sun* Annual Awards 2025 (SAA) được xây dựng trên tinh thần Root Further — Bền Rễ Vươn Xa. Với SAA 2025, chúng ta không đo lường thành công chỉ bằng những thành tích nổi bật, mà còn trân trọng những giá trị bền vững được nuôi dưỡng từ gốc rễ.",
+    "b4Block1p2": "Ở Sun*, mỗi cá nhân đều là một gốc rễ quan trọng. Khi được nuôi dưỡng đúng cách — bằng sự phát triển, sự kết nối và giá trị cốt lõi — gốc rễ ấy sẽ vươn xa hơn mong đợi.",
+    "b4Quote": "A tree with deep roots fears no storm",
+    "b4QuoteVi": "(Cây sâu bền rễ, bão giông chẳng nề - Ngạn ngữ Anh)",
+    "b4Block2": "SAA 2025 là dịp để Sun* nhìn lại hành trình đã đi qua, vinh danh những người đã âm thầm bồi đắp giá trị cho tổ chức, cho đồng đội, và cho chính mình. Đây không chỉ là một sự kiện trao giải — mà là lời khẳng định rằng: những gì bền vững, những gì thực sự có giá trị, luôn bắt đầu từ gốc rễ."
+  },
+  "EventInfo": {
+    "time": "Thời gian:",
+    "location": "Địa điểm:",
+    "livestream": "Tường thuật trực tiếp qua sóng Livestream 123"
+  },
+  "KudosBanner": {
+    "heading": "Hệ thống ghi nhận và cảm ơn"
+  },
+  "KudosActionBar": {
+    "sendPrompt": "Hôm nay, bạn muốn gửi lời cảm ơn và ghi nhận đến ai?",
+    "searchSunner": "Tìm kiếm profile Sunner"
+  },
+  "KudosFeed": {
+    "empty": "Chưa có lời cảm ơn nào — hãy là người đầu tiên ghi nhận!",
+    "recognizeNow": "Ghi nhận ngay",
+    "kudosList": "Danh sách Kudos",
+    "loading": "Đang tải...",
+    "loadMore": "Xem thêm"
+  },
+  "HighlightCarousel": {
+    "noHighlights": "Chưa có Kudos nổi bật nào.",
+    "title": "HIGHLIGHT KUDOS",
+    "hashtag": "Hashtag",
+    "all": "Tất cả",
+    "department": "Phòng ban",
+    "prevKudos": "Previous kudos",
+    "nextKudos": "Next kudos",
+    "prevPage": "Previous page",
+    "nextPage": "Next page"
+  },
+  "CopyLink": {
+    "ariaLabel": "Copy link",
+    "text": "Copy Link",
+    "copied": "Link copied — ready to share!"
+  },
+  "HeartButton": {
+    "unlike": "Bỏ thích",
+    "like": "Thích"
+  },
+  "WriteKudo": {
+    "modalTitle": "Gửi lời cám ơn và ghi nhận đến đồng đội",
+    "recipientRequired": "Người nhận là bắt buộc",
+    "titleRequired": "Danh hiệu là bắt buộc",
+    "bodyRequired": "Nội dung là bắt buộc",
+    "hashtagRequired": "Chọn ít nhất 1 hashtag",
+    "cancel": "Hủy",
+    "sending": "Đang gửi...",
+    "send": "Gửi",
+    "recipientLabel": "Người nhận",
+    "searchPlaceholder": "Tìm kiếm",
+    "noResults": "Không tìm thấy kết quả",
+    "titleLabel": "Danh hiệu",
+    "titlePlaceholder": "Dành tặng một danh hiệu cho đồng đội",
+    "titleHint": "Ví dụ: Người truyền động lực cho tôi.\nDanh hiệu sẽ hiển thị làm tiêu đề Kudos của bạn.",
+    "anonymousLabel": "Gửi lời cám ơn và ghi nhận ẩn danh",
+    "editorPlaceholder": "Hãy gửi gắm lời cám ơn và ghi nhận đến đồng đội tại đây nhé!",
+    "communityStandards": "Tiêu chuẩn cộng đồng",
+    "mentionHint": "Bạn có thể \"@ + tên\" để nhắc tới đồng nghiệp khác",
+    "imageLabel": "Image",
+    "imageMax": "Tối đa 5",
+    "deleteImage": "Xóa {filename}",
+    "hashtagLabel": "Hashtag",
+    "hashtagMax": "Tối đa 5",
+    "deleteHashtag": "Xóa #{name}"
+  },
+  "AddLink": {
+    "title": "Thêm đường dẫn",
+    "contentLabel": "Nội dung",
+    "contentRequired": "Nội dung không được để trống",
+    "contentMaxLength": "Nội dung tối đa 100 ký tự",
+    "urlLabel": "URL",
+    "urlRequired": "URL không được để trống",
+    "urlMaxLength": "URL không được vượt quá 2048 ký tự",
+    "urlInvalid": "URL phải bắt đầu bằng http:// hoặc https://",
+    "cancel": "Hủy",
+    "save": "Lưu"
+  },
+  "RichTextToolbar": {
+    "bold": "Bold",
+    "italic": "Italic",
+    "strikethrough": "Strikethrough",
+    "numberedList": "Numbered list",
+    "insertLink": "Insert link",
+    "quote": "Quote"
+  },
+  "KudosStats": {
+    "received": "Số Kudos bạn nhận được:",
+    "sent": "Số Kudos bạn đã gửi:",
+    "likes": "Số lần nhận được 👍:",
+    "boxOpened": "5 Secret Box bạn đã mở:",
+    "boxRemaining": "Số Secret Box chưa mở:",
+    "openBox": "Mở Secret Box 🎁"
+  },
+  "Leaderboard": {
+    "title": "10 SUNNER NHẬN QUÀ NỔI NHẤT",
+    "receivedFrom": "Nhận được từ {count} Sunner trong {department}"
+  },
+  "SpotlightBoard": {
+    "search": "Tìm kiếm",
+    "kudos": "KUDOS",
+    "fullscreen": "Xem toàn màn hình"
+  },
+  "ImageGallery": {
+    "imageAlt": "Kudo image {index}"
+  },
+  "KudoUserInfo": {
+    "stars": "{count} stars"
+  },
+  "HighlightKudoCard": {
+    "viewDetail": "Xem chi tiết"
+  },
+  "AwardsInfo": {
+    "saaSubtitle": "Sun* annual awards 2025",
+    "heading": "Hệ thống giải thưởng SAA 2025",
+    "awardCategories": "Award categories",
+    "awardCount": "Số lượng giải thưởng:",
+    "prizeValue": "Giá trị giải thưởng:",
+    "or": "Hoặc",
+    "forIndividual": "cho giải cá nhân",
+    "forTeam": "cho giải tập thể",
+    "forEach": "cho mỗi giải thưởng",
+    "awardAlt": "{name} award"
+  },
+  "RulesPanelContent": {
+    "heroTitle": "NGƯỜI NHẬN KUDOS: HUY HIỆU HERO CHO NHỮNG ẢNH HƯỞNG TÍCH CỰC",
+    "heroDesc": "Dựa trên số lượng đồng đội gửi trao Kudos, bạn sẽ sở hữu Huy hiệu Hero tương ứng — biểu tượng cho sức ảnh hưởng tích cực mà bạn đã tạo ra trong cộng đồng Sun*.",
+    "senderTitle": "NGƯỜI GỬI KUDOS: SƯU TẬP TRỌN BỘ 6 ICON, NHẬN NGAY PHẦN QUÀ BÍ ẨN",
+    "senderDesc": "Mỗi khi bạn gửi Kudos, bạn có cơ hội nhận được 1 trong 6 icon — mỗi icon đại diện cho một hệ giá trị cốt lõi của Sun*. Sưu tầm đủ 6 icon khác nhau để mở khoá phần quà đặc biệt!",
+    "senderGift": "Khi sưu tầm đủ bộ icon → Bạn sẽ nhận được 1 Secret Box — phần quà bí ẩn đặc biệt từ Sun*!",
+    "nationalTitle": "KUDOS QUỐC DÂN",
+    "nationalDesc": "Top những Kudos được yêu thích nhất (nhiều lượt 👍) sẽ được vinh danh tại SAA 2025.",
+    "tier1Count": "Có 1-4 người gửi Kudos cho bạn",
+    "tier1Desc": "Hành trình lan tỏa điều tốt đẹp bắt đầu...",
+    "tier2Count": "Có 5-9 người gửi Kudos cho bạn",
+    "tier2Desc": "Hình ảnh bạn đang lớn dần...",
+    "tier3Count": "Có 10–20 người gửi Kudos cho bạn",
+    "tier3Desc": "Bạn đã trở thành biểu tượng...",
+    "tier4Count": "Có hơn 20 người gửi Kudos cho bạn",
+    "tier4Desc": "Bạn đã trở thành huyền thoại..."
+  }
+}

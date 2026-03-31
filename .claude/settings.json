@@ -34,7 +34,12 @@
       "Bash(ls -la public/images/rules/badge-*.png)",
       "Bash(yarn deploy:*)",
       "Bash(npx wrangler:*)",
-      "Bash(git -C /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on remote -v)"
+      "Bash(git -C /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on remote -v)",
+      "Bash(yarn lint:*)",
+      "mcp__playwright__browser_snapshot",
+      "Bash(find /Users/nghiem.ngoc.quynh/Documents/agentic-coding-hands-on/src -type f \\\\\\(-name *.json -o -name *.ts -o -name *.tsx \\\\\\))",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__query-docs"
     ]
   }
 }

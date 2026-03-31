@@ -1,6 +1,9 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { SentArrowIcon } from '@/app/_components/icons/sent-arrow-icon'
+import { useTranslations } from 'next-intl'
 import type { KudoUser } from '@/libs/types/kudos'
 
 interface KudoUserInfoProps {
@@ -10,6 +13,8 @@ interface KudoUserInfoProps {
 }
 
 function UserBlock({ user }: { user: KudoUser }) {
+  const t = useTranslations('KudoUserInfo')
+
   return (
     <Link href={`/profile/${user.id}`} className="flex flex-col items-center gap-1">
       {user.avatar_url ? (
@@ -34,7 +39,7 @@ function UserBlock({ user }: { user: KudoUser }) {
         {user.department}
       </span>
       <span className="font-montserrat text-xs" style={{ color: 'var(--color-accent-gold)' }}>
-        {user.star_count} stars
+        {t('stars', { count: user.star_count })}
       </span>
     </Link>
   )

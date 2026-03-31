@@ -1,18 +1,21 @@
+import { getTranslations } from 'next-intl/server'
 import { awardsData } from '@/libs/data/awards'
 import { AwardCard } from './award-card'
 
-export function AwardsSection() {
+export async function AwardsSection() {
+  const t = await getTranslations('Homepage')
+
   return (
     <section className="flex flex-col gap-[80px] px-4 md:px-[144px] max-w-[calc(1224px+288px)] mx-auto w-full">
       {/* C1_Header */}
       <div className="flex flex-col gap-[16px]">
         <p className="font-montserrat font-bold text-[24px] leading-[32px] text-white">
-          Sun* annual awards 2025
+          {t('saaSubtitle')}
         </p>
         <div className="h-px bg-[#2E3940] w-full" />
         <div className="flex flex-row">
           <h2 className="font-montserrat font-bold text-[57px] leading-[64px] tracking-[-0.25px] text-[#FFEA9E] w-full lg:w-[637px]">
-            Hệ thống giải thưởng
+            {t('awardsHeading')}
           </h2>
         </div>
       </div>

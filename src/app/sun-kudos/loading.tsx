@@ -1,6 +1,6 @@
 export default function SunKudosLoading() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-[var(--color-bg-dark)]">
+    <main className="relative min-h-screen overflow-x-clip bg-[var(--color-bg-dark)]">
       {/* Header skeleton */}
       <div className="sticky top-0 z-10 h-[80px] bg-[var(--color-header-bg)] backdrop-blur-sm" />
 

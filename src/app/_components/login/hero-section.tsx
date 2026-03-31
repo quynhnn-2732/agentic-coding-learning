@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 import { LoginSection } from './login-section'
 
 interface HeroSectionProps {
@@ -6,6 +9,7 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ initialError }: HeroSectionProps) {
+  const t = useTranslations('Login')
   return (
     <section className="absolute top-[88px] left-0 right-0 flex flex-col px-[144px] py-[96px] gap-[120px]">
       {/* Frame 487 — flex-col, gap: 80px */}
@@ -28,8 +32,8 @@ export function HeroSection({ initialError }: HeroSectionProps) {
 
           {/* B.2_content — Montserrat 20px/700, line-height 40px, letter-spacing 0.5px */}
           <div className="font-montserrat font-bold text-[20px] leading-10 tracking-[0.5px] text-text-white">
-            <p>Bắt đầu hành trình của bạn cùng SAA 2025.</p>
-            <p>Đăng nhập để khám phá!</p>
+            <p>{t('heroLine1')}</p>
+            <p>{t('heroLine2')}</p>
           </div>
 
           {/* B.3 Login CTA */}

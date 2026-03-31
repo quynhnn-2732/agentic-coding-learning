@@ -1,6 +1,28 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { AwardContentBlock } from '@/app/_components/awards-information/award-content-block'
+
+// Mock the async AwardMetadataBox server component
+vi.mock('@/app/_components/awards-information/award-metadata-box', () => ({
+  AwardMetadataBox: (props: Record<string, unknown>) => {
+    if (props.type === 'quantity') {
+      return (
+        <div className="flex flex-row items-center gap-[16px]">
+          <span>Số lượng giải thưởng:</span>
+          <span>{String(props.quantity)}</span>
+          <span>{props.unit as string}</span>
+        </div>
+      )
+    }
+    return (
+      <div className="flex flex-col gap-[16px]">
+        <span>Giá trị giải thưởng:</span>
+        <span>{props.prizeValue as string}</span>
+        <span>{props.subtitle as string}</span>
+      </div>
+    )
+  },
+}))
 
 const baseProps = {
   name: 'Top Talent',

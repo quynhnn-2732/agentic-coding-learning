@@ -10,6 +10,28 @@ vi.mock('next/image', () => ({
   ),
 }))
 
+// Mock the async AwardMetadataBox server component
+vi.mock('@/app/_components/awards-information/award-metadata-box', () => ({
+  AwardMetadataBox: (props: Record<string, unknown>) => {
+    if (props.type === 'quantity') {
+      return (
+        <div>
+          <span>Số lượng giải thưởng:</span>
+          <span>{String(props.quantity)}</span>
+          <span>{props.unit as string}</span>
+        </div>
+      )
+    }
+    return (
+      <div>
+        <span>Giá trị giải thưởng:</span>
+        <span>{props.prizeValue as string}</span>
+        <span>{props.subtitle as string}</span>
+      </div>
+    )
+  },
+}))
+
 const mockAward: AwardDetail = {
   id: '1',
   slug: 'top-talent',

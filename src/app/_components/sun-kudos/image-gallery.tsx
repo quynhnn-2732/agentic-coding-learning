@@ -1,4 +1,7 @@
+'use client'
+
 import { PlayIcon } from '@/app/_components/icons/play-icon'
+import { useTranslations } from 'next-intl'
 
 interface ImageGalleryProps {
   images: string[]
@@ -6,6 +9,7 @@ interface ImageGalleryProps {
 }
 
 export function ImageGallery({ images, videoUrl }: ImageGalleryProps) {
+  const t = useTranslations('ImageGallery')
   if (!images.length && !videoUrl) return null
 
   const visible = images.slice(0, 5)
@@ -17,7 +21,7 @@ export function ImageGallery({ images, videoUrl }: ImageGalleryProps) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={src}
-            alt={`Kudo image ${idx + 1}`}
+            alt={t('imageAlt', { index: idx + 1 })}
             width={88}
             height={88}
             className="rounded-lg object-cover w-[88px] h-[88px] bg-[var(--color-kudos-text-secondary)]/20"

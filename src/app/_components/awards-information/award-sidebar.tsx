@@ -1,10 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 import { awardsData } from '@/libs/data/awards'
 import { TargetIcon } from '@/app/_components/icons/target-icon'
 
 export function AwardSidebar() {
+  const t = useTranslations('AwardsInfo')
   const [activeSlug, setActiveSlug] = useState('top-talent')
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export function AwardSidebar() {
   return (
     <nav
       role="navigation"
-      aria-label="Award categories"
+      aria-label={t('awardCategories')}
       className="w-[178px] sticky top-[96px] self-start flex flex-col gap-[16px]"
     >
       {awardsData.map((award) => {

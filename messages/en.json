@@ -1,0 +1,214 @@
+{
+  "Header": {
+    "goToHomepage": "Go to homepage",
+    "aboutSaa": "About SAA 2025",
+    "awardsInfo": "Awards Information",
+    "sunKudos": "Sun* Kudos",
+    "notification": "Notifications"
+  },
+  "Footer": {
+    "aboutSaa": "About SAA 2025",
+    "awardsInfo": "Awards Information",
+    "sunKudos": "Sun* Kudos",
+    "standards": "General Standards",
+    "copyright": "Copyright Sun* © 2025"
+  },
+  "Widget": {
+    "quickAction": "Quick actions",
+    "rules": "Rules",
+    "writeKudos": "Write KUDOS",
+    "closeMenu": "Close menu"
+  },
+  "RulesPanel": {
+    "title": "Rules",
+    "close": "Close",
+    "writeKudos": "Write KUDOS"
+  },
+  "Language": {
+    "selectLanguage": "Select language"
+  },
+  "Login": {
+    "heroLine1": "Start your journey with SAA 2025.",
+    "heroLine2": "Login to explore!",
+    "loginWithGoogle": "LOGIN With Google",
+    "loginFailed": "Login failed. Please try again later.",
+    "closeError": "Close error notification"
+  },
+  "Profile": {
+    "title": "Profile",
+    "comingSoon": "Profile page coming soon."
+  },
+  "ProfileDropdown": {
+    "account": "Account",
+    "profileMenu": "Profile menu",
+    "profile": "Profile",
+    "logout": "Logout",
+    "unexpectedError": "An unexpected error occurred"
+  },
+  "ErrorPage": {
+    "title": "An error occurred",
+    "defaultMessage": "Unable to load Sun* Kudos page. Please try again.",
+    "retry": "Retry"
+  },
+  "Homepage": {
+    "aboutAwards": "ABOUT AWARDS",
+    "aboutKudos": "ABOUT KUDOS",
+    "rootFurther": "ROOT FURTHER",
+    "saaSubtitle": "Sun* annual awards 2025",
+    "awardsHeading": "Awards System",
+    "kudosMovement": "Recognition Movement",
+    "sunKudos": "Sun* Kudos",
+    "newInSaa": "NEW IN SAA 2025",
+    "details": "Details",
+    "comingSoon": "Coming soon",
+    "days": "DAYS",
+    "hours": "HOURS",
+    "minutes": "MINUTES",
+    "kudosDesc": "Sun* Kudos is part of the Sun* Annual Awards, a place where every Sunner can send thanks and recognition to teammates through Kudos cards — a simple yet meaningful way.",
+    "b4Block1p1": "Sun* Annual Awards 2025 (SAA) is built on the spirit of Root Further — Growing Deep, Reaching Far. With SAA 2025, we don't measure success only by outstanding achievements, but also cherish sustainable values nurtured from the roots.",
+    "b4Block1p2": "At Sun*, every individual is an important root. When nurtured properly — through growth, connection, and core values — those roots will reach further than expected.",
+    "b4Quote": "A tree with deep roots fears no storm",
+    "b4QuoteVi": "(An English proverb)",
+    "b4Block2": "SAA 2025 is an occasion for Sun* to look back on the journey, honor those who have quietly built value for the organization, for teammates, and for themselves. This is not just an awards ceremony — it is an affirmation that what is sustainable, what is truly valuable, always starts from the roots."
+  },
+  "EventInfo": {
+    "time": "Time:",
+    "location": "Location:",
+    "livestream": "Live broadcast via Livestream 123"
+  },
+  "KudosBanner": {
+    "heading": "Recognition & Appreciation System"
+  },
+  "KudosActionBar": {
+    "sendPrompt": "Today, who would you like to send thanks and recognition to?",
+    "searchSunner": "Search Sunner profile"
+  },
+  "KudosFeed": {
+    "empty": "No appreciation yet — be the first to recognize!",
+    "recognizeNow": "Recognize now",
+    "kudosList": "Kudos list",
+    "loading": "Loading...",
+    "loadMore": "Load more"
+  },
+  "HighlightCarousel": {
+    "noHighlights": "No highlighted Kudos yet.",
+    "title": "HIGHLIGHT KUDOS",
+    "hashtag": "Hashtag",
+    "all": "All",
+    "department": "Department",
+    "prevKudos": "Previous kudos",
+    "nextKudos": "Next kudos",
+    "prevPage": "Previous page",
+    "nextPage": "Next page"
+  },
+  "CopyLink": {
+    "ariaLabel": "Copy link",
+    "text": "Copy Link",
+    "copied": "Link copied — ready to share!"
+  },
+  "HeartButton": {
+    "unlike": "Unlike",
+    "like": "Like"
+  },
+  "WriteKudo": {
+    "modalTitle": "Send appreciation and recognition to your teammate",
+    "recipientRequired": "Recipient is required",
+    "titleRequired": "Title is required",
+    "bodyRequired": "Content is required",
+    "hashtagRequired": "Select at least 1 hashtag",
+    "cancel": "Cancel",
+    "sending": "Sending...",
+    "send": "Send",
+    "recipientLabel": "Recipient",
+    "searchPlaceholder": "Search",
+    "noResults": "No results found",
+    "titleLabel": "Title",
+    "titlePlaceholder": "Give a title to your teammate",
+    "titleHint": "Example: The person who motivates me.\nThe title will be displayed as your Kudos heading.",
+    "anonymousLabel": "Send appreciation and recognition anonymously",
+    "editorPlaceholder": "Share your appreciation and recognition for your teammate here!",
+    "communityStandards": "Community Standards",
+    "mentionHint": "You can use \"@ + name\" to mention another colleague",
+    "imageLabel": "Image",
+    "imageMax": "Max 5",
+    "deleteImage": "Delete {filename}",
+    "hashtagLabel": "Hashtag",
+    "hashtagMax": "Max 5",
+    "deleteHashtag": "Delete #{name}"
+  },
+  "AddLink": {
+    "title": "Add link",
+    "contentLabel": "Content",
+    "contentRequired": "Content is required",
+    "contentMaxLength": "Content must be 100 characters or less",
+    "urlLabel": "URL",
+    "urlRequired": "URL is required",
+    "urlMaxLength": "URL must be 2048 characters or less",
+    "urlInvalid": "URL must start with http:// or https://",
+    "cancel": "Cancel",
+    "save": "Save"
+  },
+  "RichTextToolbar": {
+    "bold": "Bold",
+    "italic": "Italic",
+    "strikethrough": "Strikethrough",
+    "numberedList": "Numbered list",
+    "insertLink": "Insert link",
+    "quote": "Quote"
+  },
+  "KudosStats": {
+    "received": "Kudos you received:",
+    "sent": "Kudos you sent:",
+    "likes": "Likes received 👍:",
+    "boxOpened": "Secret Boxes opened:",
+    "boxRemaining": "Secret Boxes remaining:",
+    "openBox": "Open Secret Box 🎁"
+  },
+  "Leaderboard": {
+    "title": "TOP 10 MOST RECOGNIZED SUNNERS",
+    "receivedFrom": "Received from {count} Sunners in {department}"
+  },
+  "SpotlightBoard": {
+    "search": "Search",
+    "kudos": "KUDOS",
+    "fullscreen": "View fullscreen"
+  },
+  "ImageGallery": {
+    "imageAlt": "Kudo image {index}"
+  },
+  "KudoUserInfo": {
+    "stars": "{count} stars"
+  },
+  "HighlightKudoCard": {
+    "viewDetail": "View details"
+  },
+  "AwardsInfo": {
+    "saaSubtitle": "Sun* annual awards 2025",
+    "heading": "SAA 2025 Awards System",
+    "awardCategories": "Award categories",
+    "awardCount": "Number of awards:",
+    "prizeValue": "Prize value:",
+    "or": "Or",
+    "forIndividual": "for individual award",
+    "forTeam": "for team award",
+    "forEach": "for each award",
+    "awardAlt": "{name} award"
+  },
+  "RulesPanelContent": {
+    "heroTitle": "KUDOS RECIPIENT: HERO BADGE FOR POSITIVE INFLUENCE",
+    "heroDesc": "Based on the number of teammates who send you Kudos, you will receive a corresponding Hero Badge — a symbol of the positive influence you have created in the Sun* community.",
+    "senderTitle": "KUDOS SENDER: COLLECT ALL 6 ICONS, GET A MYSTERY GIFT",
+    "senderDesc": "Every time you send Kudos, you have a chance to receive 1 of 6 icons — each icon represents a core value of Sun*. Collect all 6 different icons to unlock a special gift!",
+    "senderGift": "When you collect the full set → You will receive 1 Secret Box — a special mystery gift from Sun*!",
+    "nationalTitle": "NATIONAL KUDOS",
+    "nationalDesc": "Top Kudos with the most likes (👍) will be honored at SAA 2025.",
+    "tier1Count": "1-4 people sent you Kudos",
+    "tier1Desc": "The journey of spreading good deeds begins...",
+    "tier2Count": "5-9 people sent you Kudos",
+    "tier2Desc": "Your image is growing...",
+    "tier3Count": "10-20 people sent you Kudos",
+    "tier3Desc": "You have become a symbol...",
+    "tier4Count": "More than 20 people sent you Kudos",
+    "tier4Desc": "You have become a legend..."
+  }
+}

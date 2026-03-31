@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import type { Kudo } from '@/libs/types/kudos'
 import { KudoUserInfo } from './kudo-user-info'
 import { CategoryTag } from './category-tag'
@@ -23,6 +24,7 @@ function formatTime(iso: string): string {
 }
 
 export function HighlightKudoCard({ kudo, isActive = false }: HighlightKudoCardProps) {
+  const t = useTranslations('HighlightKudoCard')
   const visibleHashtags = kudo.hashtags.slice(0, 5)
 
   return (
@@ -117,7 +119,7 @@ export function HighlightKudoCard({ kudo, isActive = false }: HighlightKudoCardP
               className="flex items-center gap-1 px-3 sm:px-4 md:px-4 lg:px-4 py-3 sm:py-3 md:py-4 lg:py-4 rounded transition-all hover:bg-[rgba(255,234,158,0.2)]"
             >
               <span className="text-xs sm:text-sm md:text-base lg:text-base font-medium leading-4 sm:leading-5 md:leading-6 lg:leading-6 tracking-[0.009375rem] font-montserrat text-[#00101A]">
-                Xem chi tiết
+                {t('viewDetail')}
               </span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z" fill="#00101A" />

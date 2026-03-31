@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import { useTranslations } from 'next-intl'
 import { PlusIcon } from '../../icons/plus-icon'
 import { CloseIcon } from '../../icons/close-icon'
 
@@ -19,6 +20,7 @@ const MAX_SIZE_MB = 5
 const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
 
 export function ImageUpload({ images, onChange }: ImageUploadProps) {
+  const t = useTranslations('WriteKudo')
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,7 +58,7 @@ export function ImageUpload({ images, onChange }: ImageUploadProps) {
   return (
     <div className="flex flex-row flex-wrap items-center gap-4">
       <span className="font-montserrat text-[22px] font-bold leading-7 text-[var(--color-bg-dark)]">
-        Image
+        {t('imageLabel')}
       </span>
 
       {/* Thumbnails */}
@@ -70,7 +72,7 @@ export function ImageUpload({ images, onChange }: ImageUploadProps) {
           <button
             type="button"
             onClick={() => handleRemove(i)}
-            aria-label={`Xóa ${img.filename}`}
+            aria-label={t('deleteImage', { filename: img.filename })}
             className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-error)] text-white"
           >
             <CloseIcon size={12} color="white" />
@@ -88,9 +90,9 @@ export function ImageUpload({ images, onChange }: ImageUploadProps) {
           >
             <PlusIcon size={24} color="var(--color-bg-dark)" />
             <span className="font-montserrat text-[11px] font-bold leading-4 tracking-[0.5px] text-[var(--color-kudos-text-secondary)]">
-              Image
+              {t('imageLabel')}
               <br />
-              Tối đa 5
+              {t('imageMax')}
             </span>
           </button>
           <input

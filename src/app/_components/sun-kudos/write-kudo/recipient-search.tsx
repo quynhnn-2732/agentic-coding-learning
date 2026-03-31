@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 import { ChevronDownIcon } from '../../icons/chevron-down-icon'
 
 interface UserResult {
@@ -16,6 +17,7 @@ interface RecipientSearchProps {
 }
 
 export function RecipientSearch({ value, onChange, error }: RecipientSearchProps) {
+  const t = useTranslations('WriteKudo')
   const [query, setQuery] = useState(value?.name ?? '')
   const [results, setResults] = useState<UserResult[]>([])
   const [isOpen, setIsOpen] = useState(false)
@@ -82,7 +84,7 @@ export function RecipientSearch({ value, onChange, error }: RecipientSearchProps
   return (
     <div className="flex flex-row items-center gap-4 max-md:flex-col max-md:items-start" ref={containerRef}>
       <label className="flex items-center gap-0.5 font-montserrat text-[22px] font-bold leading-7 text-[var(--color-bg-dark)] whitespace-nowrap">
-        Người nhận
+        {t('recipientLabel')}
         <span className="text-[var(--color-required)]">*</span>
       </label>
 
@@ -91,7 +93,7 @@ export function RecipientSearch({ value, onChange, error }: RecipientSearchProps
           type="text"
           value={query}
           onChange={handleInputChange}
-          placeholder="Tìm kiếm"
+          placeholder={t('searchPlaceholder')}
           className={`h-14 w-full rounded-[var(--radius-kudos-btn-gift)] bg-white px-6 py-4 font-montserrat text-base font-bold leading-6 text-[var(--color-bg-dark)] placeholder:text-[var(--color-kudos-text-secondary)] border ${borderClass} outline-none transition-colors duration-150`}
         />
         <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[var(--color-bg-dark)]">
@@ -123,7 +125,7 @@ export function RecipientSearch({ value, onChange, error }: RecipientSearchProps
 
         {isOpen && results.length === 0 && !isLoading && query.trim().length > 0 && (
           <div className="absolute left-0 top-full z-10 mt-1 w-full rounded-lg border border-[var(--color-btn-kudos-border)] bg-white px-4 py-3 font-montserrat text-base text-[var(--color-kudos-text-secondary)]">
-            Không tìm thấy kết quả
+            {t('noResults')}
           </div>
         )}
       </div>

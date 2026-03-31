@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { getTranslations } from 'next-intl/server'
 import { Countdown } from './countdown'
 import { EventInfo } from './event-info'
 import { CtaButtons } from './cta-buttons'
@@ -6,7 +7,8 @@ import { CtaButtons } from './cta-buttons'
 const EVENT_DATETIME = process.env.NEXT_PUBLIC_EVENT_DATETIME ?? ''
 const EVENT_LOCATION = process.env.NEXT_PUBLIC_EVENT_LOCATION ?? ''
 
-export function HeroSection() {
+export async function HeroSection() {
+  const t = await getTranslations('Homepage')
   return (
     // Background is managed at page level (3.5_Keyvisual + Cover + bottom-fade)
     <section className="relative min-h-[calc(100vh-80px)]">
@@ -17,7 +19,7 @@ export function HeroSection() {
           {/* B.1_Key Visual — ROOT FURTHER logo */}
           <Image
             src="/images/root-further-logo.png"
-            alt="ROOT FURTHER"
+            alt={t('rootFurther')}
             width={451}
             height={200}
             priority

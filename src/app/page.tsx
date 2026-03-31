@@ -7,7 +7,6 @@ import { B4Content } from '@/app/_components/homepage/b4-content'
 import { AwardsSection } from '@/app/_components/homepage/awards-section'
 import { SunkudosSection } from '@/app/_components/homepage/sunkudos-section'
 import { HomepageFooter } from '@/app/_components/homepage/footer'
-import { WidgetButton } from '@/app/_components/homepage/widget-button'
 
 export const metadata: Metadata = { title: 'SAA 2025 — Homepage' }
 
@@ -17,7 +16,7 @@ export default async function HomePage() {
   const avatarUrl = user?.user_metadata?.avatar_url as string | undefined
 
   return (
-    <main className="relative overflow-x-hidden bg-[#00101A]">
+    <main className="relative overflow-x-clip bg-[#00101A]">
       {/* 3.5_Keyvisual — page-level absolute, 1512×1392px per Figma design */}
       <div className="absolute top-0 left-0 right-0 h-[1392px] overflow-hidden pointer-events-none" aria-hidden="true">
         <Image
@@ -52,7 +51,6 @@ export default async function HomePage() {
         <SunkudosSection />
       </div>
       <HomepageFooter />
-      <WidgetButton />
     </main>
   )
 }

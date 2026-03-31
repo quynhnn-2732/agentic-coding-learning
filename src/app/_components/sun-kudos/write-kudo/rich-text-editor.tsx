@@ -5,6 +5,7 @@ import StarterKit from '@tiptap/starter-kit'
 import Link from '@tiptap/extension-link'
 import Placeholder from '@tiptap/extension-placeholder'
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { BoldIcon } from '../../icons/bold-icon'
 import { ItalicIcon } from '../../icons/italic-icon'
 import { StrikethroughIcon } from '../../icons/strikethrough-icon'
@@ -20,6 +21,8 @@ interface RichTextEditorProps {
 }
 
 export function RichTextEditor({ value, onChange, error }: RichTextEditorProps) {
+  const t = useTranslations('WriteKudo')
+  const tToolbar = useTranslations('RichTextToolbar')
   const [isLinkDialogOpen, setIsLinkDialogOpen] = useState(false)
 
   const editor = useEditor({
@@ -36,7 +39,7 @@ export function RichTextEditor({ value, onChange, error }: RichTextEditorProps) 
         HTMLAttributes: { class: 'text-[var(--color-link-text)] underline' },
       }),
       Placeholder.configure({
-        placeholder: 'Hãy gửi gắm lời cám ơn và ghi nhận đến đồng đội tại đây nhé!',
+        placeholder: t('editorPlaceholder'),
       }),
     ],
     content: value,
@@ -57,12 +60,12 @@ export function RichTextEditor({ value, onChange, error }: RichTextEditorProps) 
     : 'border-[var(--color-btn-kudos-border)]'
 
   const toolbarButtons = [
-    { icon: BoldIcon, action: () => editor.chain().focus().toggleBold().run(), isActive: editor.isActive('bold'), label: 'Bold' },
-    { icon: ItalicIcon, action: () => editor.chain().focus().toggleItalic().run(), isActive: editor.isActive('italic'), label: 'Italic' },
-    { icon: StrikethroughIcon, action: () => editor.chain().focus().toggleStrike().run(), isActive: editor.isActive('strike'), label: 'Strikethrough' },
-    { icon: ListIcon, action: () => editor.chain().focus().toggleOrderedList().run(), isActive: editor.isActive('orderedList'), label: 'Numbered list' },
-    { icon: LinkIcon, action: () => setIsLinkDialogOpen(true), isActive: editor.isActive('link'), label: 'Insert link' },
-    { icon: QuoteIcon, action: () => editor.chain().focus().toggleBlockquote().run(), isActive: editor.isActive('blockquote'), label: 'Quote' },
+    { icon: BoldIcon, action: () => editor.chain().focus().toggleBold().run(), isActive: editor.isActive('bold'), label: tToolbar('bold') },
+    { icon: ItalicIcon, action: () => editor.chain().focus().toggleItalic().run(), isActive: editor.isActive('italic'), label: tToolbar('italic') },
+    { icon: StrikethroughIcon, action: () => editor.chain().focus().toggleStrike().run(), isActive: editor.isActive('strike'), label: tToolbar('strikethrough') },
+    { icon: ListIcon, action: () => editor.chain().focus().toggleOrderedList().run(), isActive: editor.isActive('orderedList'), label: tToolbar('numberedList') },
+    { icon: LinkIcon, action: () => setIsLinkDialogOpen(true), isActive: editor.isActive('link'), label: tToolbar('insertLink') },
+    { icon: QuoteIcon, action: () => editor.chain().focus().toggleBlockquote().run(), isActive: editor.isActive('blockquote'), label: tToolbar('quote') },
   ]
 
   const handleLinkSave = (text: string, url: string) => {
@@ -104,7 +107,7 @@ export function RichTextEditor({ value, onChange, error }: RichTextEditorProps) 
           onClick={(e) => e.preventDefault()}
           className="ml-auto px-4 font-montserrat text-base font-bold text-[var(--color-link-text)] hover:underline"
         >
-          Tiêu chuẩn cộng đồng
+          {t('communityStandards')}
         </a>
       </div>
 
@@ -115,7 +118,7 @@ export function RichTextEditor({ value, onChange, error }: RichTextEditorProps) 
 
       {/* Hint */}
       <p className="mt-1 font-montserrat text-base font-bold leading-6 text-[var(--color-kudos-text-secondary)]">
-        Bạn có thể &ldquo;@ + tên&rdquo; để nhắc tới đồng nghiệp khác
+        {t('mentionHint')}
       </p>
 
       {/* Add Link Dialog */}

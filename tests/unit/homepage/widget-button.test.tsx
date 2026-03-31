@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { WidgetButton } from '@/app/_components/homepage/widget-button'
+import { IntlWrapper } from '../../helpers/intl-wrapper'
 
 // Mock RulesPanel to avoid importing the full component tree
 vi.mock('@/app/_components/sun-kudos/rules-panel', () => ({
@@ -8,26 +9,34 @@ vi.mock('@/app/_components/sun-kudos/rules-panel', () => ({
     isOpen ? <div data-testid="rules-panel" role="dialog"><button onClick={onClose}>close-panel</button></div> : null,
 }))
 
+function renderWidget() {
+  return render(
+    <IntlWrapper>
+      <WidgetButton />
+    </IntlWrapper>
+  )
+}
+
 describe('WidgetButton', () => {
   it('renders with aria-label "Thao tác nhanh"', () => {
-    render(<WidgetButton />)
+    renderWidget()
     expect(screen.getByLabelText('Thao tác nhanh')).toBeInTheDocument()
   })
 
   it('has fixed positioning classes', () => {
-    render(<WidgetButton />)
+    renderWidget()
     const btn = screen.getByLabelText('Thao tác nhanh')
     expect(btn.className).toMatch(/fixed/)
   })
 
   it('aria-expanded is false initially', () => {
-    render(<WidgetButton />)
+    renderWidget()
     const btn = screen.getByLabelText('Thao tác nhanh')
     expect(btn.getAttribute('aria-expanded')).toBe('false')
   })
 
   it('toggles aria-expanded and shows menu on click', () => {
-    render(<WidgetButton />)
+    renderWidget()
     const btn = screen.getByLabelText('Thao tác nhanh')
     fireEvent.click(btn)
     expect(btn.getAttribute('aria-expanded')).toBe('true')
@@ -35,26 +44,26 @@ describe('WidgetButton', () => {
   })
 
   it('renders 3 menuitem buttons when expanded', () => {
-    render(<WidgetButton />)
+    renderWidget()
     fireEvent.click(screen.getByLabelText('Thao tác nhanh'))
     const menuItems = screen.getAllByRole('menuitem')
     expect(menuItems).toHaveLength(3)
   })
 
   it('renders "Thể lệ" button with correct text', () => {
-    render(<WidgetButton />)
+    renderWidget()
     fireEvent.click(screen.getByLabelText('Thao tác nhanh'))
     expect(screen.getByText('Thể lệ')).toBeInTheDocument()
   })
 
   it('renders "Viết KUDOS" button with correct text', () => {
-    render(<WidgetButton />)
+    renderWidget()
     fireEvent.click(screen.getByLabelText('Thao tác nhanh'))
     expect(screen.getByText('Viết KUDOS')).toBeInTheDocument()
   })
 
   it('collapses menu when Close button is clicked', () => {
-    render(<WidgetButton />)
+    renderWidget()
     const fab = screen.getByLabelText('Thao tác nhanh')
     fireEvent.click(fab)
     expect(screen.getByRole('menu')).toBeInTheDocument()
@@ -66,7 +75,7 @@ describe('WidgetButton', () => {
   })
 
   it('collapses menu when Escape is pressed', () => {
-    render(<WidgetButton />)
+    renderWidget()
     fireEvent.click(screen.getByLabelText('Thao tác nhanh'))
     expect(screen.getByRole('menu')).toBeInTheDocument()
 
@@ -75,7 +84,7 @@ describe('WidgetButton', () => {
   })
 
   it('opens rules panel when "Thể lệ" is clicked', () => {
-    render(<WidgetButton />)
+    renderWidget()
     fireEvent.click(screen.getByLabelText('Thao tác nhanh'))
     fireEvent.click(screen.getByText('Thể lệ'))
 
@@ -84,7 +93,7 @@ describe('WidgetButton', () => {
   })
 
   it('renders pen icon and SAA icon within the collapsed button', () => {
-    const { container } = render(<WidgetButton />)
+    const { container } = renderWidget()
     const svgs = container.querySelectorAll('button[aria-label="Thao tác nhanh"] svg')
     expect(svgs.length).toBeGreaterThanOrEqual(1)
   })

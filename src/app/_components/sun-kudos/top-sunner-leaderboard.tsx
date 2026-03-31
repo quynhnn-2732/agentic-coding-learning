@@ -1,10 +1,14 @@
+'use client'
+
 import type { KudoUser } from "@/libs/types/kudos";
+import { useTranslations } from 'next-intl'
 
 interface TopSunnerLeaderboardProps {
   users: KudoUser[];
 }
 
 export function TopSunnerLeaderboard({ users }: TopSunnerLeaderboardProps) {
+  const t = useTranslations('Leaderboard')
   return (
     <div
       className="flex flex-col gap-4 rounded-[17px] p-6"
@@ -17,7 +21,7 @@ export function TopSunnerLeaderboard({ users }: TopSunnerLeaderboardProps) {
         className="font-montserrat font-bold text-base leading-6 tracking-[0.5px]"
         style={{ color: "#FFEA9E" }}
       >
-        10 SUNNER NHAN QUA NOI NHAT
+        {t('title')}
       </h3>
 
       <div className="flex flex-col gap-3">
@@ -43,7 +47,7 @@ export function TopSunnerLeaderboard({ users }: TopSunnerLeaderboardProps) {
                 {user.name}
               </span>
               <span className="font-montserrat text-xs leading-4 text-white/50">
-                Nhan duoc 1 sé phong {user.department}
+                {t('receivedFrom', { count: user.department, department: user.department })}
               </span>
             </div>
           </div>

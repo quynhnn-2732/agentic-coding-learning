@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 import { CopyLinkIcon } from '@/app/_components/icons/copy-link-icon'
 import { Toast } from '@/app/_components/sun-kudos/toast'
 
@@ -20,6 +21,7 @@ function fallbackCopy(text: string) {
 }
 
 export function CopyLinkButton({ kudoId }: CopyLinkButtonProps) {
+  const t = useTranslations('CopyLink')
   const [showToast, setShowToast] = useState(false)
 
   const handleCopy = useCallback(async () => {
@@ -38,13 +40,13 @@ export function CopyLinkButton({ kudoId }: CopyLinkButtonProps) {
         type="button"
         onClick={handleCopy}
         className="flex items-center gap-1 p-4 rounded-[var(--radius-sm)] transition-colors duration-150 hover:bg-[rgba(255,234,158,0.10)]"
-        aria-label="Copy link"
+        aria-label={t('ariaLabel')}
       >
-        <span className="font-montserrat font-bold text-sm text-[#00101A]">Copy Link</span>
+        <span className="font-montserrat font-bold text-sm text-[#00101A]">{t('text')}</span>
         <CopyLinkIcon size={24} color="#00101A" />
       </button>
       {showToast && (
-        <Toast message="Link copied — ready to share!" onDismiss={() => setShowToast(false)} />
+        <Toast message={t('copied')} onDismiss={() => setShowToast(false)} />
       )}
     </>
   )

@@ -1,16 +1,21 @@
+'use client'
+
 import type { KudosStats } from "@/libs/types/kudos";
+import { useTranslations } from 'next-intl'
 
 interface KudosStatsPanelProps {
   stats: KudosStats;
 }
 
 export function KudosStatsPanel({ stats }: KudosStatsPanelProps) {
+  const t = useTranslations('KudosStats')
+
   const rows = [
-    { label: "Số Kudos bạn nhận được:", value: stats.received_count },
-    { label: "Số Kudos bạn đã gửi:", value: stats.sent_count },
-    { label: "Số lần nhận được 👍:", value: stats.heart_count },
-    { label: "5 Secret Box bạn đã mở:", value: stats.secret_box_opened },
-    { label: "Số Secret Box chưa mở:", value: stats.secret_box_unopened },
+    { label: t('received'), value: stats.received_count },
+    { label: t('sent'), value: stats.sent_count },
+    { label: t('likes'), value: stats.heart_count },
+    { label: t('boxOpened'), value: stats.secret_box_opened },
+    { label: t('boxRemaining'), value: stats.secret_box_unopened },
   ];
 
   return (
@@ -43,7 +48,7 @@ export function KudosStatsPanel({ stats }: KudosStatsPanelProps) {
         className="w-full mt-2 flex items-center justify-center gap-2 py-4 rounded-lg font-montserrat font-bold text-[16px] leading-6 text-[#00101A] transition-opacity hover:opacity-90 cursor-pointer"
         style={{ backgroundColor: "#FFEA9E" }}
       >
-        Mở Secret Box 🎁
+        {t('openBox')}
       </button>
     </div>
   );

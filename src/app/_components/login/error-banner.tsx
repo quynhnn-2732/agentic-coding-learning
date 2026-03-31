@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { useTranslations } from 'next-intl'
 
 interface ErrorBannerProps {
   message: string
@@ -8,9 +9,10 @@ interface ErrorBannerProps {
 }
 
 export function ErrorBanner({ message, onDismiss }: ErrorBannerProps) {
+  const t = useTranslations('Login')
   useEffect(() => {
-    const t = setTimeout(onDismiss, 5000)
-    return () => clearTimeout(t)
+    const timer = setTimeout(onDismiss, 5000)
+    return () => clearTimeout(timer)
   }, [message, onDismiss])
 
   return (
@@ -23,7 +25,7 @@ export function ErrorBanner({ message, onDismiss }: ErrorBannerProps) {
       <button
         type="button"
         onClick={onDismiss}
-        aria-label="Đóng thông báo lỗi"
+        aria-label={t('closeError')}
         className="shrink-0 ml-sm hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-white rounded"
       >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

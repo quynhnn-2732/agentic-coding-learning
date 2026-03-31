@@ -19,6 +19,7 @@ class MockIntersectionObserver {
 vi.stubGlobal('IntersectionObserver', MockIntersectionObserver)
 
 import { AwardSidebar } from '@/app/_components/awards-information/award-sidebar'
+import { IntlWrapper } from '../../helpers/intl-wrapper'
 
 describe('AwardSidebar', () => {
   beforeEach(() => {
@@ -29,26 +30,26 @@ describe('AwardSidebar', () => {
   })
 
   it('renders navigation with aria-label="Award categories"', () => {
-    render(<AwardSidebar />)
+    render(<IntlWrapper><AwardSidebar /></IntlWrapper>)
     expect(
       screen.getByRole('navigation', { name: 'Award categories' })
     ).toBeInTheDocument()
   })
 
   it('renders exactly 6 navigation buttons', () => {
-    render(<AwardSidebar />)
+    render(<IntlWrapper><AwardSidebar /></IntlWrapper>)
     expect(screen.getAllByRole('button')).toHaveLength(6)
   })
 
   it('renders buttons with correct award names', () => {
-    render(<AwardSidebar />)
+    render(<IntlWrapper><AwardSidebar /></IntlWrapper>)
     awardsData.forEach((award) => {
       expect(screen.getByRole('button', { name: award.name })).toBeInTheDocument()
     })
   })
 
   it('first button (Top Talent) is active on initial render with aria-current="true"', () => {
-    render(<AwardSidebar />)
+    render(<IntlWrapper><AwardSidebar /></IntlWrapper>)
     expect(screen.getByRole('button', { name: 'Top Talent' })).toHaveAttribute(
       'aria-current',
       'true'
@@ -56,7 +57,7 @@ describe('AwardSidebar', () => {
   })
 
   it('other buttons do not have aria-current by default', () => {
-    render(<AwardSidebar />)
+    render(<IntlWrapper><AwardSidebar /></IntlWrapper>)
     const otherButtons = awardsData.slice(1).map((award) =>
       screen.getByRole('button', { name: award.name })
     )
@@ -70,7 +71,7 @@ describe('AwardSidebar', () => {
     section.id = 'best-manager'
     document.body.appendChild(section)
 
-    render(<AwardSidebar />)
+    render(<IntlWrapper><AwardSidebar /></IntlWrapper>)
     fireEvent.click(screen.getByRole('button', { name: 'Best Manager' }))
 
     expect(section.scrollIntoView).toHaveBeenCalledWith({ behavior: 'smooth' })
@@ -87,7 +88,7 @@ describe('AwardSidebar', () => {
       return el
     })
 
-    render(<AwardSidebar />)
+    render(<IntlWrapper><AwardSidebar /></IntlWrapper>)
 
     const bestManagerEl = document.getElementById('best-manager')!
     act(() => {
@@ -109,7 +110,7 @@ describe('AwardSidebar', () => {
   })
 
   it('does not update active slug when entry is not intersecting', () => {
-    render(<AwardSidebar />)
+    render(<IntlWrapper><AwardSidebar /></IntlWrapper>)
 
     const fakeEl = document.createElement('section')
     fakeEl.id = 'top-project'

@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, afterEach } from 'vitest'
 import { render, screen, act } from '@testing-library/react'
 import { Countdown } from '@/app/_components/homepage/countdown'
+import { IntlWrapper } from '../../helpers/intl-wrapper'
 
 const EVENT_DATE = '2025-12-26T18:30:00+07:00'
 const EVENT_MS = new Date(EVENT_DATE).getTime()
@@ -14,7 +15,7 @@ describe('Countdown', () => {
     // 30 days before event
     vi.useFakeTimers()
     vi.setSystemTime(EVENT_MS - 30 * 24 * 60 * 60 * 1000)
-    render(<Countdown targetDateIso={EVENT_DATE} />)
+    render(<IntlWrapper><Countdown targetDateIso={EVENT_DATE} /></IntlWrapper>)
     expect(screen.getByText(/coming soon/i)).toBeInTheDocument()
   })
 
@@ -23,7 +24,7 @@ describe('Countdown', () => {
     // Exactly 3 days, 5 hours, 7 minutes before event → days="03", hours="05", minutes="07"
     const offset = (3 * 24 * 60 + 5 * 60 + 7) * 60 * 1000
     vi.setSystemTime(EVENT_MS - offset)
-    render(<Countdown targetDateIso={EVENT_DATE} />)
+    render(<IntlWrapper><Countdown targetDateIso={EVENT_DATE} /></IntlWrapper>)
 
     // Each unit has 2 individual single-char tiles → 3 units × 2 tiles = 6 total
     const tiles = screen.getAllByTestId('digit-tile')
@@ -45,7 +46,7 @@ describe('Countdown', () => {
     // Exactly 3 days, 5 hours, 7 minutes before event
     const offset = (3 * 24 * 60 + 5 * 60 + 7) * 60 * 1000
     vi.setSystemTime(EVENT_MS - offset)
-    render(<Countdown targetDateIso={EVENT_DATE} />)
+    render(<IntlWrapper><Countdown targetDateIso={EVENT_DATE} /></IntlWrapper>)
     const tiles = screen.getAllByTestId('digit-tile')
     // days=03 → "0","3"; hours=05 → "0","5"; minutes=07 → "0","7"
     const chars = tiles.map((t) => t.textContent)
@@ -58,7 +59,7 @@ describe('Countdown', () => {
   it('hides "Coming soon" and shows all-zero tiles after event date', () => {
     vi.useFakeTimers()
     vi.setSystemTime(EVENT_MS + 1000)
-    render(<Countdown targetDateIso={EVENT_DATE} />)
+    render(<IntlWrapper><Countdown targetDateIso={EVENT_DATE} /></IntlWrapper>)
     expect(screen.queryByText(/coming soon/i)).not.toBeInTheDocument()
     // All 6 tiles should show "0"
     const tiles = screen.getAllByTestId('digit-tile')
@@ -70,7 +71,7 @@ describe('Countdown', () => {
     vi.useFakeTimers()
     // Start at exactly 2 minutes before event: hours=00, minutes=02
     vi.setSystemTime(EVENT_MS - 2 * 60 * 1000)
-    render(<Countdown targetDateIso={EVENT_DATE} />)
+    render(<IntlWrapper><Countdown targetDateIso={EVENT_DATE} /></IntlWrapper>)
     let tiles = screen.getAllByTestId('digit-tile')
     // minutes=02 → tiles "0","2"
     expect(tiles.some((t) => t.textContent === '2')).toBe(true)
@@ -85,7 +86,7 @@ describe('Countdown', () => {
   it('shows DAYS, HOURS, MINUTES unit labels', () => {
     vi.useFakeTimers()
     vi.setSystemTime(EVENT_MS - 30 * 24 * 60 * 60 * 1000)
-    render(<Countdown targetDateIso={EVENT_DATE} />)
+    render(<IntlWrapper><Countdown targetDateIso={EVENT_DATE} /></IntlWrapper>)
     expect(screen.getByText('DAYS')).toBeInTheDocument()
     expect(screen.getByText('HOURS')).toBeInTheDocument()
     expect(screen.getByText('MINUTES')).toBeInTheDocument()
@@ -94,7 +95,7 @@ describe('Countdown', () => {
   it('shows "0" in days tile when less than 24h remaining', () => {
     vi.useFakeTimers()
     vi.setSystemTime(EVENT_MS - 2 * 60 * 60 * 1000) // 2 hours before, days=0
-    render(<Countdown targetDateIso={EVENT_DATE} />)
+    render(<IntlWrapper><Countdown targetDateIso={EVENT_DATE} /></IntlWrapper>)
     const tiles = screen.getAllByTestId('digit-tile')
     // days=00 → both tiles "0"; hours=02 → tiles "0","2"
     expect(tiles.some((t) => t.textContent === '2')).toBe(true) // hours units digit

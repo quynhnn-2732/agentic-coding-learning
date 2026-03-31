@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { PlusIcon } from '../../icons/plus-icon'
 import { CloseIcon } from '../../icons/close-icon'
 import { HashtagDropdown } from './hashtag-dropdown'
@@ -14,6 +15,7 @@ interface HashtagSelectorProps {
 }
 
 export function HashtagSelector({ hashtags, selected, onSelectionChange, error }: HashtagSelectorProps) {
+  const t = useTranslations('WriteKudo')
   const [isOpen, setIsOpen] = useState(false)
 
   const handleToggle = (hashtag: Hashtag) => {
@@ -32,7 +34,7 @@ export function HashtagSelector({ hashtags, selected, onSelectionChange, error }
   return (
     <div className="flex flex-row flex-wrap items-center gap-4">
       <label className="flex items-center gap-0.5 font-montserrat text-[22px] font-bold leading-7 text-[var(--color-bg-dark)] whitespace-nowrap">
-        Hashtag
+        {t('hashtagLabel')}
         <span className="text-[var(--color-required)]">*</span>
       </label>
 
@@ -50,9 +52,9 @@ export function HashtagSelector({ hashtags, selected, onSelectionChange, error }
         >
           <PlusIcon size={24} color="var(--color-bg-dark)" />
           <span className="font-montserrat text-[11px] font-bold leading-4 tracking-[0.5px] text-[var(--color-kudos-text-secondary)]">
-            Hashtag
+            {t('hashtagLabel')}
             <br />
-            Tối đa 5
+            {t('hashtagMax')}
           </span>
         </button>
 
@@ -76,7 +78,7 @@ export function HashtagSelector({ hashtags, selected, onSelectionChange, error }
           <button
             type="button"
             onClick={() => handleRemoveChip(hashtag.id)}
-            aria-label={`Xóa #${hashtag.name}`}
+            aria-label={t('deleteHashtag', { name: hashtag.name })}
             className="ml-1 flex h-4 w-4 items-center justify-center rounded-full hover:bg-[var(--color-kudos-btn-hover)]"
           >
             <CloseIcon size={12} />

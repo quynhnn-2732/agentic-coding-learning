@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 import { CloseIcon } from '@/app/_components/icons/close-icon'
 import { WidgetPenIcon } from '@/app/_components/icons/widget-pen-icon'
 import { RulesPanelContent } from '@/app/_components/sun-kudos/rules-panel-content'
@@ -11,6 +12,7 @@ interface RulesPanelProps {
 }
 
 export function RulesPanel({ isOpen, onClose }: RulesPanelProps) {
+  const t = useTranslations('RulesPanel')
   const scrollRef = useRef<HTMLDivElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
 
@@ -67,7 +69,7 @@ export function RulesPanel({ isOpen, onClose }: RulesPanelProps) {
           id="rules-panel-title"
           className="font-montserrat font-bold text-[45px] leading-[52px] text-[var(--color-accent-gold)] max-md:text-[32px] max-md:leading-[40px]"
         >
-          Thể lệ
+          {t('title')}
         </h1>
         <RulesPanelContent />
       </div>
@@ -80,7 +82,7 @@ export function RulesPanel({ isOpen, onClose }: RulesPanelProps) {
         >
           <CloseIcon size={24} color="white" />
           <span className="font-montserrat font-bold text-base leading-6 tracking-[0.5px] text-white">
-            Đóng
+            {t('close')}
           </span>
         </button>
         <button
@@ -93,7 +95,7 @@ export function RulesPanel({ isOpen, onClose }: RulesPanelProps) {
         >
           <WidgetPenIcon />
           <span className="font-montserrat font-bold text-base leading-6 tracking-[0.5px] text-[var(--color-bg-dark)]">
-            Viết KUDOS
+            {t('writeKudos')}
           </span>
         </button>
       </div>

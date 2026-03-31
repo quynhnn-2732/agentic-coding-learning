@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { RecipientSearch } from '@/app/_components/sun-kudos/write-kudo/recipient-search'
+import { IntlWrapper } from '../../helpers/intl-wrapper'
 
 // Mock fetch
 const mockFetch = vi.fn()
@@ -18,18 +19,18 @@ describe('RecipientSearch', () => {
   }
 
   it('renders label "Người nhận" with required asterisk', () => {
-    render(<RecipientSearch {...defaultProps} />)
+    render(<IntlWrapper><RecipientSearch {...defaultProps} /></IntlWrapper>)
     expect(screen.getByText('Người nhận')).toBeInTheDocument()
     expect(screen.getByText('*')).toBeInTheDocument()
   })
 
   it('renders input with placeholder "Tìm kiếm"', () => {
-    render(<RecipientSearch {...defaultProps} />)
+    render(<IntlWrapper><RecipientSearch {...defaultProps} /></IntlWrapper>)
     expect(screen.getByPlaceholderText('Tìm kiếm')).toBeInTheDocument()
   })
 
   it('shows error border when error prop is set', () => {
-    render(<RecipientSearch {...defaultProps} error="Required" />)
+    render(<IntlWrapper><RecipientSearch {...defaultProps} error="Required" /></IntlWrapper>)
     const input = screen.getByPlaceholderText('Tìm kiếm')
     expect(input.className).toContain('border-[var(--color-error)]')
   })
@@ -40,7 +41,7 @@ describe('RecipientSearch', () => {
       json: () => Promise.resolve([{ id: '1', name: 'Nguyễn Văn A', avatar_url: null }]),
     })
 
-    render(<RecipientSearch {...defaultProps} />)
+    render(<IntlWrapper><RecipientSearch {...defaultProps} /></IntlWrapper>)
     const input = screen.getByPlaceholderText('Tìm kiếm')
     fireEvent.change(input, { target: { value: 'Nguyễn' } })
 
@@ -52,10 +53,12 @@ describe('RecipientSearch', () => {
 
   it('displays selected recipient name when value is set', () => {
     render(
-      <RecipientSearch
-        {...defaultProps}
-        value={{ id: '1', name: 'Nguyễn Văn A', avatar_url: null }}
-      />
+      <IntlWrapper>
+        <RecipientSearch
+          {...defaultProps}
+          value={{ id: '1', name: 'Nguyễn Văn A', avatar_url: null }}
+        />
+      </IntlWrapper>
     )
     const input = screen.getByDisplayValue('Nguyễn Văn A')
     expect(input).toBeInTheDocument()

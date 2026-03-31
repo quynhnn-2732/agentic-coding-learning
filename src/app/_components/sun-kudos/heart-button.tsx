@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 import { toggleHeart } from '@/libs/data/kudos-queries'
 
 interface HeartButtonProps {
@@ -10,6 +11,7 @@ interface HeartButtonProps {
 }
 
 export function HeartButton({ kudoId, initialCount, initialIsHearted }: HeartButtonProps) {
+  const t = useTranslations('HeartButton')
   const [isHearted, setIsHearted] = useState(initialIsHearted)
   const [count, setCount] = useState(initialCount)
   const [isLoading, setIsLoading] = useState(false)
@@ -44,7 +46,7 @@ export function HeartButton({ kudoId, initialCount, initialIsHearted }: HeartBut
       onClick={handleToggle}
       disabled={isLoading}
       className="flex items-center gap-1 cursor-pointer transition-transform duration-200 hover:scale-110 disabled:opacity-70"
-      aria-label={isHearted ? 'Bỏ thích' : 'Thích'}
+      aria-label={isHearted ? t('unlike') : t('like')}
       aria-pressed={isHearted}
     >
       <svg

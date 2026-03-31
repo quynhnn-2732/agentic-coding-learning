@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTranslations } from "next-intl";
 import type { SpotlightData } from "@/libs/types/kudos";
 import { SearchIcon } from "@/app/_components/icons/search-icon";
 
@@ -58,6 +59,7 @@ function createNodes(w: number, h: number): FloatingNode[] {
 }
 
 export function SpotlightBoard({ data }: SpotlightBoardProps) {
+  const t = useTranslations("SpotlightBoard");
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const nodesRef = useRef<FloatingNode[]>([]);
@@ -237,7 +239,7 @@ export function SpotlightBoard({ data }: SpotlightBoardProps) {
             className="font-montserrat font-bold text-[22px] leading-[28px] tracking-wider text-white"
             style={{ textShadow: "0 2px 16px rgba(0,0,0,0.8)" }}
           >
-            KUDOS
+            {t("kudos")}
           </span>
         </div>
 
@@ -253,7 +255,7 @@ export function SpotlightBoard({ data }: SpotlightBoardProps) {
             <SearchIcon size={14} />
             <input
               type="text"
-              placeholder="Tìm kiếm"
+              placeholder={t("search")}
               className="bg-transparent text-white text-[11px] font-montserrat w-[100px] outline-none placeholder:text-white/40"
             />
           </div>
@@ -274,7 +276,7 @@ export function SpotlightBoard({ data }: SpotlightBoardProps) {
             }}
             className="w-9 h-9 rounded-lg flex items-center justify-center transition-colors hover:bg-white/10 cursor-pointer"
             style={{ backgroundColor: "rgba(0, 7, 12, 0.6)", border: "0.5px solid rgba(153, 140, 95, 0.5)" }}
-            aria-label="Xem toàn màn hình"
+            aria-label={t("fullscreen")}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

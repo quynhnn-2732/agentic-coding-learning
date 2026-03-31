@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { WidgetButton } from '@/app/_components/homepage/widget-button'
 import { WriteKudoModal } from './write-kudo-modal'
 import type { Hashtag } from '@/libs/types/kudos'
 
@@ -16,7 +15,6 @@ export function WriteKudoTrigger({ initialHashtags }: WriteKudoTriggerProps) {
 
   return (
     <>
-      <WidgetButton onWriteKudo={() => setIsOpen(true)} />
       <WriteKudoModal
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}

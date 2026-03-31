@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { signInWithGoogle } from '@/libs/auth/actions'
 import { GoogleIcon } from '@/app/_components/icons/google-icon'
 
@@ -9,6 +10,7 @@ interface LoginButtonProps {
 }
 
 export function LoginButton({ onError }: LoginButtonProps) {
+  const t = useTranslations('Login')
   const [isLoading, setIsLoading] = useState(false)
 
   async function handleClick() {
@@ -23,7 +25,7 @@ export function LoginButton({ onError }: LoginButtonProps) {
       }
     } catch {
       setIsLoading(false)
-      onError('Đăng nhập thất bại. Vui lòng thử lại sau.')
+      onError(t('loginFailed'))
     }
   }
 
@@ -70,7 +72,7 @@ export function LoginButton({ onError }: LoginButtonProps) {
         </svg>
       ) : (
         <>
-          <span>LOGIN With Google</span>
+          <span>{t('loginWithGoogle')}</span>
           <GoogleIcon size={24} />
         </>
       )}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -22,6 +23,7 @@ export function HighlightCarousel({
   hashtags,
   departments,
 }: HighlightCarouselProps) {
+  const t = useTranslations("HighlightCarousel");
   const swiperRef = useRef<SwiperType | null>(null);
   const hashtagRef = useRef<HTMLDivElement>(null);
   const departmentRef = useRef<HTMLDivElement>(null);
@@ -97,7 +99,7 @@ export function HighlightCarousel({
   if (kudos.length === 0 && !isFiltering) {
     return (
       <div className="px-4 md:px-[144px] mt-6 text-white/40 text-sm">
-        Chưa có Kudos nổi bật nào.
+        {t("noHighlights")}
       </div>
     );
   }
@@ -119,7 +121,7 @@ export function HighlightCarousel({
             className="font-montserrat font-bold text-[32px] md:text-[57px] leading-[40px] md:leading-[64px] tracking-[-0.25px]"
             style={{ color: "var(--color-accent-gold)" }}
           >
-            HIGHLIGHT KUDOS
+            {t("title")}
           </h2>
 
           {/* Filter buttons */}
@@ -141,7 +143,7 @@ export function HighlightCarousel({
                     : "var(--color-btn-kudos-border)",
                 }}
               >
-                <span>{selectedHashtag ?? "Hashtag"}</span>
+                <span>{selectedHashtag ?? t("hashtag")}</span>
                 <ChevronDownIcon size={20} />
               </button>
               {showHashtagDropdown && (
@@ -151,7 +153,7 @@ export function HighlightCarousel({
                     onClick={() => handleHashtagSelect(null)}
                     className="w-full text-left px-4 py-3 font-montserrat text-sm text-white hover:bg-[var(--color-kudos-btn-hover)] transition-colors"
                   >
-                    Tất cả
+                    {t("all")}
                   </button>
                   {hashtags.map((h) => (
                     <button
@@ -184,7 +186,7 @@ export function HighlightCarousel({
                     : "var(--color-btn-kudos-border)",
                 }}
               >
-                <span>{selectedDepartment ?? "Phòng ban"}</span>
+                <span>{selectedDepartment ?? t("department")}</span>
                 <ChevronDownIcon size={20} />
               </button>
               {showDepartmentDropdown && (
@@ -194,7 +196,7 @@ export function HighlightCarousel({
                     onClick={() => handleDepartmentSelect(null)}
                     className="w-full text-left px-4 py-3 font-montserrat text-sm text-white hover:bg-[var(--color-kudos-btn-hover)] transition-colors"
                   >
-                    Tất cả
+                    {t("all")}
                   </button>
                   {departments.map((d) => (
                     <button
@@ -237,7 +239,7 @@ export function HighlightCarousel({
           type="button"
           onClick={() => swiperRef.current?.slidePrev()}
           className="absolute left-4 top-1/2 w-14 h-14 hidden md:flex items-center justify-center rounded-full transition-all z-10 cursor-pointer hover:bg-black/50"
-          aria-label="Previous kudos"
+          aria-label={t("prevKudos")}
           style={{
             backgroundColor: "rgba(0, 0, 0, 0.3)",
             transform: "translateY(-50%)",
@@ -290,7 +292,7 @@ export function HighlightCarousel({
           type="button"
           onClick={() => swiperRef.current?.slideNext()}
           className="absolute right-4 top-1/2 w-14 h-14 hidden md:flex items-center justify-center rounded-full transition-all z-10 cursor-pointer hover:bg-black/50"
-          aria-label="Next kudos"
+          aria-label={t("nextKudos")}
           style={{
             backgroundColor: "rgba(0, 0, 0, 0.3)",
             transform: "translateY(-50%)",
@@ -315,7 +317,7 @@ export function HighlightCarousel({
           type="button"
           onClick={() => swiperRef.current?.slidePrev()}
           className="w-12 h-12 flex items-center justify-center rounded-[var(--radius-sm)] transition-colors duration-150 hover:bg-[rgba(255,234,158,0.10)] cursor-pointer"
-          aria-label="Previous page"
+          aria-label={t("prevPage")}
         >
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
             <path
@@ -338,7 +340,7 @@ export function HighlightCarousel({
           type="button"
           onClick={() => swiperRef.current?.slideNext()}
           className="w-12 h-12 flex items-center justify-center rounded-[var(--radius-sm)] transition-colors duration-150 hover:bg-[rgba(255,234,158,0.10)] cursor-pointer"
-          aria-label="Next page"
+          aria-label={t("nextPage")}
         >
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
             <path

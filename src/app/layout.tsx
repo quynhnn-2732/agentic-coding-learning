@@ -1,5 +1,10 @@
 import type { Metadata } from 'next'
 import { Montserrat, Montserrat_Alternates } from 'next/font/google'
+import { NextIntlClientProvider } from 'next-intl'
+import { getLocale, getMessages } from 'next-intl/server'
+import { createClient } from '@/libs/supabase/server'
+import { WriteKudoProvider } from '@/app/_components/sun-kudos/write-kudo/write-kudo-context'
+import { WidgetButton } from '@/app/_components/homepage/widget-button'
 import './globals.css'
 
 const montserrat = Montserrat({
@@ -20,13 +25,19 @@ export const metadata: Metadata = {
   description: 'Sun Annual Awards 2025',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const locale = await getLocale()
+  const messages = await getMessages()
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  const isAuthenticated = !!user
+
   return (
-    <html lang="vi">
+    <html lang={locale}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
@@ -36,7 +47,12 @@ export default function RootLayout({
             Vui lòng bật JavaScript để sử dụng ứng dụng này.
           </div>
         </noscript>
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          <WriteKudoProvider>
+            {children}
+            {isAuthenticated && <WidgetButton />}
+          </WriteKudoProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   )
